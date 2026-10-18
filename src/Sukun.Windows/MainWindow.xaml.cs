@@ -131,7 +131,7 @@ public partial class MainWindow : Window
     }
     private void Wake() { if (!exiting && !loading) { timer.Interval = TimeSpan.FromMilliseconds(100); timer.Start(); } }
     private string? ReadinessReason() => smoke ? L.Get("PreviewMediaOff") : !mediaReady ? L.Get("MediaNotReady")
-        : settings.PlaceId is null ? L.Get("SelectLocationFirst")
+        : settings.PlaceId is null || !places.Exists(p => p.Id == settings.PlaceId) ? L.Get("SelectLocationFirst")
         : table?.PlaceId != settings.PlaceId || table.ContiguousDays(Timetable.TurkeyDate(Now)) == 0 ? L.Get("RefreshToday")
         : settings.Prayers.Count == 0 ? L.Get("SelectOnePrayer") : null;
     private async Task TickAsync()
@@ -165,11 +165,18 @@ public partial class MainWindow : Window
         var overview = PrayerOverview.Build(table, settings, now);
         var hasNext = overview.NextPrayer.HasValue;
         var nextBreak = overview.NextAutomaticBreak;
+        var place = places.FirstOrDefault(p => p.Id == settings.PlaceId);
+        var needsLocation = place is null;
         var trayText = settings.Enabled ? L.Get("TrayActive") : L.Get("TrayOff");
         if (tray.Text != trayText) tray.Text = trayText;
         var schedule = $"{settings.PlaceId}|{settings.Enabled}|{nextBreak?.Start:O}|{controller.ActiveUntil:O}|{TimeZoneInfo.Local.Id}";
         if (schedule != lastSchedule) { lastSchedule = schedule; log.Write("schedule", new { settings.PlaceId, settings.Enabled, provider = "Diyanet", calculationZone = "UTC+03:00", next = nextBreak?.Start, activeUntil = controller.ActiveUntil }); }
         if (!IsVisible) return; // Keep scheduling/tray state, skip invisible WPF control updates.
+        ChooseLocationButton.Visibility = needsLocation ? Visibility.Visible : Visibility.Collapsed;
+        PrayerSummary.Visibility = needsLocation ? Visibility.Collapsed : Visibility.Visible;
+        PrayerTimesPanel.Visibility = needsLocation ? Visibility.Collapsed : Visibility.Visible;
+        PlaceBox.IsEnabled = ProvinceBox.SelectedItem is string;
+
 
         StatusLabel.Text = controller.IsActive ? L.Get("OnBreak") : settings.Enabled ? L.Get("Active") : L.Get("Off");
         StatusDot.SetResourceReference(System.Windows.Shapes.Shape.FillProperty, settings.Enabled ? "Accent" : "Muted");
@@ -180,7 +187,7 @@ public partial class MainWindow : Window
         NextPrayerText.Text = hasNext ? L.Get("NextPrayerValue", L.Prayer(overview.NextPrayer!.Value), L.Time(overview.NextAt!.Value)) : settings.PlaceId is null ? L.Get("ChooseLocationTitle") : L.Get("WaitingTimes");
         var remaining = overview.NextAt - now;
         NextTimeText.Text = remaining.HasValue ? L.Duration(remaining.Value) : "—";
-        StatusDetail.Text = controller.IsActive ? controller.Message : !settings.Enabled ? L.Get("AutomationOff") : ReadinessReason() ?? (nextBreak is not null
+        StatusDetail.Text = needsLocation ? L.Get("ChooseLocationHelp") : controller.IsActive ? controller.Message : !settings.Enabled ? L.Get("AutomationOff") : ReadinessReason() ?? (nextBreak is not null
             ? L.Get("NextBreakValue", L.Prayer(nextBreak.Prayer), L.Time(nextBreak.Start, true)) : L.Get("WaitingBreak"));
         CancelButton.Visibility = controller.IsActive ? Visibility.Visible : Visibility.Collapsed;
         var count = table?.ContiguousDays(today) ?? 0;
@@ -202,7 +209,6 @@ public partial class MainWindow : Window
             box.IsEnabled = times is not null;
             CardState.SetIsNext(box, hasNext && Timetable.TurkeyDate(overview.NextAt!.Value) == today && overview.NextPrayer == Enum.Parse<Prayer>((string)box.Tag));
         }
-        var place = places.FirstOrDefault(p => p.Id == settings.PlaceId);
         var compact = place is not null && count > 0 && !editingLocation;
         LocationEditor.Visibility = compact ? Visibility.Collapsed : Visibility.Visible;
         LocationSummary.Visibility = compact ? Visibility.Visible : Visibility.Collapsed;
@@ -301,6 +307,15 @@ public partial class MainWindow : Window
         // Explicit location selection is itself a request to obtain its missing data.
         if (!smoke && (cached is null || cached.ContiguousDays(Timetable.TurkeyDate(Now)) == 0)) await RefreshAsync(true);
         else Wake();
+    }
+    private void BeginLocationSetup(object sender, RoutedEventArgs e)
+    {
+        editingLocation = true;
+        Render(Now, BreakWindow.Build(table, settings, Now));
+        RootScroll.ScrollToTop();
+        ProvinceBox.BringIntoView();
+        ProvinceBox.Focus();
+        ProvinceBox.IsDropDownOpen = true;
     }
     private void EditLocation(object sender, RoutedEventArgs e) { editingLocation = true; Render(Now, BreakWindow.Build(table, settings, Now)); ProvinceBox.Focus(); }
     private async void PlayerChanged(object sender, SelectionChangedEventArgs e)

@@ -1,8 +1,10 @@
-# v0.1.0-beta.4 verification
+# v0.1.0-beta.5 verification
 
 This is a public test release, not a stable compatibility claim.
 
 ## Release scope
+
+- Clean installs have no preset city. Before a location is chosen, a prominent Choose location action replaces empty prayer cards. Province selection loads the official central prayer-time area. Existing saved locations/languages are preserved. No geolocation, IP lookup or location tracking is added.
 
 - Opt-in update checks include subsequent betas for prerelease installations; stable installations stay on stable releases. Semantic version comparison ignores build metadata and prevents downgrades. Only published releases with the expected Windows EXE and repository URLs are offered.
 - Background update notices are shown once per version, persist across restart and wait while a media break/trial is active. Clicking the notification or Update opens a confirmation; only explicit agreement opens GitHub. Nothing is downloaded, installed or restarted automatically. Windows may suppress tray notifications under its notification/focus settings; the in-app update state remains available.
@@ -19,15 +21,15 @@ This is a public test release, not a stable compatibility claim.
 ## Automated verification
 
 - Local Windows x64 Release solution build: 0 warnings / 0 errors.
-- Application automated suite: **100/100 passed**, including clock/session ownership, localization, single instance, location identity, popup geometry and fixture credential guard.
+- Application automated suite: **101/101 passed**, including clock/session ownership, localization, single instance, location identity, popup geometry and fixture credential guard.
 - Website release resolver: **10 checks passed**.
 - This is automated/source verification, not a successful real-media test of the final distributed EXE.
 
 ## Runtime verification limits
 
 - The published beta is **unsigned**. Trusted signing enrollment has not been completed. The prepared signing workflow is not proof of a signature.
-- This development machine previously blocked an unsigned beta under Windows Application Control. Security protections are not disabled or bypassed for testing. Direct beta.4 EXE startup, current performance and actual player pause/resume are not yet validated.
-- A real YouTube Music pause/resume trial succeeded on an earlier executable, with other already-paused players remaining paused. That is historical evidence, not a successful beta.4 runtime test.
+- This development machine previously blocked an unsigned beta under Windows Application Control. Security protections are not disabled or bypassed for testing. Direct beta.5 EXE startup, current performance and actual player pause/resume are not yet validated.
+- A real YouTube Music pause/resume trial succeeded on an earlier executable, with other already-paused players remaining paused. That is historical evidence, not a successful beta.5 runtime test.
 - A separate Windows 10 device/VM, reboot/startup registration, physical multi-monitor/DPI cases and long sleep/wake still require user testing. Automated fake-clock/session checks do not replace these hardware tests.
 - Previous RAM/startup observations do not describe this exact packaged binary and are not performance promises.
 

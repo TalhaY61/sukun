@@ -566,4 +566,10 @@ Playback will continue. Nothing will be installed or restarted automatically.</v
   <data name="UpdateAfterBreak" xml:space="preserve">
     <value>{0} is ready. Review it after the current pause or media test ends.</value>
   </data>
+  <data name="ChooseLocationAction" xml:space="preserve">
+    <value>Choose location</value>
+  </data>
+  <data name="ChooseLocationHelp" xml:space="preserve">
+    <value>Choose your province and prayer-time area to load local prayer times. Your selection stays on this device.</value>
+  </data>
 </root>

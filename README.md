@@ -8,7 +8,7 @@
 
 **[İndir / Download](https://talhay61.github.io/sukun/)** · [GitHub Releases](https://github.com/TalhaY61/sukun/releases) · [Hata bildir / Report an issue](https://github.com/TalhaY61/sukun/issues/new/choose)
 
-> **v0.1.0-beta.4 — Test sürümü / Test release.** Henüz kararlı sürüm değildir. / Not a stable release yet.
+> **v0.1.0-beta.5 — Test sürümü / Test release.** Henüz kararlı sürüm değildir. / Not a stable release yet.
 
 | Türkçe · Açık | English · Light |
 | :---: | :---: |

@@ -445,6 +445,17 @@ Test("Update prompt and tray notice resources exist in both supported languages"
         Assert(L.ForLanguage(key,lang)!=key);
 });
 
+Test("Fresh installations have no preset city and cannot schedule Ankara by accident", () =>
+{
+    var fresh = new Settings();
+    Assert(fresh.PlaceId is null && !fresh.Enabled && fresh.Language is null);
+    Assert(BreakWindow.Build(parsed, fresh, now).Count == 0);
+    var path=Path.Combine(Environment.CurrentDirectory,"artifacts","first-run-tests",Guid.NewGuid().ToString("N"));
+    var loaded=new LocalStore(path).LoadSettings();
+    Assert(loaded.PlaceId is null && !loaded.Enabled);
+    foreach(var language in new[]{"en","tr"})
+        Assert(L.ForLanguage("ChooseLocationAction",language)!="ChooseLocationAction");
+});
 var failed = 0;
 foreach (var (name, run) in tests)
 {

@@ -566,4 +566,10 @@ Medya yayını devam eder. Otomatik kurulum veya yeniden başlatma yapılmaz.</v
   <data name="UpdateAfterBreak" xml:space="preserve">
     <value>{0} hazır. Mevcut mola veya medya testi bittikten sonra güncellemeyi inceleyebilirsiniz.</value>
   </data>
+  <data name="ChooseLocationAction" xml:space="preserve">
+    <value>Konum seç</value>
+  </data>
+  <data name="ChooseLocationHelp" xml:space="preserve">
+    <value>Namaz vakitleri için il ve vakit bölgesi seçin. Bu seçim yalnızca cihazınızda saklanır.</value>
+  </data>
 </root>
