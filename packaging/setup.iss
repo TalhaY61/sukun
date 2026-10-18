@@ -1,4 +1,4 @@
-#define AppVersion "0.1.0-beta.2"
+#define AppVersion "0.1.0-beta.3"
 [Setup]
 AppId={{2150CBCA-4F88-48EF-BEC6-F3B57A61E2AC}
 AppName=Sükûn

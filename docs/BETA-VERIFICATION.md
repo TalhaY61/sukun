@@ -1,8 +1,10 @@
-# v0.1.0-beta.2 verification
+# v0.1.0-beta.3 verification
 
 This is a public test release, not a stable compatibility claim.
 
 ## Release scope
+
+- Developer media trial, trial details and local-log shortcut are hidden in Release packages. Debug builds retain them. Normal startup/cache/update preferences stay visible. Bounded local diagnostics and media/automation behavior are unchanged.
 
 - Same WPF/C# Windows 10 (2004+) / Windows 11 x64 app, Turkish/English UI, local settings/cache, tray operation and conservative media ownership rules.
 - Existing pause + circumflex branding and four supplied screenshots are included. No new media engine or automation behavior is introduced by this release.
@@ -19,8 +21,8 @@ This is a public test release, not a stable compatibility claim.
 ## Runtime verification limits
 
 - The published beta is **unsigned**. Trusted signing enrollment has not been completed. The prepared signing workflow is not proof of a signature.
-- This development machine previously blocked an unsigned beta under Windows Application Control. Security protections are not disabled or bypassed for testing. Direct beta.2 EXE startup, current performance and actual player pause/resume are not yet validated.
-- A real YouTube Music pause/resume trial succeeded on an earlier executable, with other already-paused players remaining paused. That is historical evidence, not a successful beta.2 runtime test.
+- This development machine previously blocked an unsigned beta under Windows Application Control. Security protections are not disabled or bypassed for testing. Direct beta.3 EXE startup, current performance and actual player pause/resume are not yet validated.
+- A real YouTube Music pause/resume trial succeeded on an earlier executable, with other already-paused players remaining paused. That is historical evidence, not a successful beta.3 runtime test.
 - A separate Windows 10 device/VM, reboot/startup registration, physical multi-monitor/DPI cases and long sleep/wake still require user testing. Automated fake-clock/session checks do not replace these hardware tests.
 - Previous RAM/startup observations do not describe this exact packaged binary and are not performance promises.
 

@@ -59,6 +59,9 @@ public partial class MainWindow : Window
         media.Log = log;
         controller = CreateController();
         InitializeComponent();
+#if DEBUG
+        DeveloperTools.Visibility = Visibility.Visible;
+#endif
         brandIcon = BrandIcon.Create();
         Icon = BrandIcon.WindowImage();
         ThemeManager.Apply(settings.Theme, this);

@@ -13,7 +13,7 @@ public static class ReleaseSource
     public static bool IsPrerelease => VersionLabel.Contains('-');
     public static Version CurrentVersion { get; } = typeof(ReleaseSource).Assembly.GetName().Version ?? new Version(0, 1, 0);
     public static string VersionLabel { get; } = (typeof(ReleaseSource).Assembly
-        .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion ?? "0.1.0-beta.2").Split('+')[0];
+        .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion ?? "0.1.0-beta.3").Split('+')[0];
 }
 
 public sealed class SoftwareUpdateClient : IDisposable
