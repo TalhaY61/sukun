@@ -14,7 +14,7 @@ Sükûn, namaz vakti geldiğinde bilgisayarınızda çalan müziğe veya videoya
 
 Ücretsiz, reklamsız ve açık kaynaklıdır. Hesap açmanız veya .NET kurmanız gerekmez. **Windows 10 (2004 veya sonrası) ve Windows 11, x64** desteklenir. Şimdilik Türkiye için Diyanet vakitlerini kullanır.
 
-> **İlk yayın: v1.0.0.** Bu sürüm dijital olarak imzalanmamıştır. Windows bazı bilgisayarlarda uyarı gösterebilir veya çalışmasını engelleyebilir.
+> **İlk yayın: v1.0.1.** Bu sürüm dijital olarak imzalanmamıştır. Windows bazı bilgisayarlarda uyarı gösterebilir veya çalışmasını engelleyebilir.
 
 | Açık tema | Koyu tema |
 | :---: | :---: |
@@ -32,7 +32,7 @@ Konum, dil ve diğer tercihleriniz kaydedilir. Türkçe ve İngilizce arasında 
 
 ### Yeni sürümler ve gizlilik
 
-Gelişmiş ayarlardan **Yeni uygulama sürümlerini denetle** seçeneğini açarsanız günde bir kontrol yapılır. Yeni sürüm bulunduğunda Windows bildirim ayarlarına bağlı olarak haber verilir. **Güncelle** düğmesi onayınızla indirme sayfasını açar; uygulama kendini otomatik kurmaz veya yeniden başlatmaz.
+Gelişmiş ayarlardan **Yeni uygulama sürümlerini denetle** seçeneğini açarsanız günde bir kontrol yapılır. Yeni sürüm bulunduğunda Windows bildirim ayarlarına bağlı olarak haber verilir. **Güncelle** düğmesi onayınızla indirme sayfasını açar; uygulama kendini otomatik kurmaz veya yeniden başlatmaz. Yeni dosyayı indirdikten sonra eski uygulamada **Çıkış**’ı seçip yeni EXE’yi açın. **X** yalnızca tepsiye gizler. Ayarlarınız korunur; çalışan sürümü gelişmiş ayarlarda görebilirsiniz.
 
 Ayarlar ve sınırlı hata günlükleri cihazınızda kalır. Telemetri, reklam ve otomatik hata gönderimi yoktur. Vakitleri almak için Diyanet’e, isteğe bağlı sürüm kontrolü için GitHub’a bağlanır.
 
@@ -78,7 +78,7 @@ Sükûn is a small Windows app that pauses music or video at prayer time. After 
 
 Free, ad-free and open source. No account or .NET installation needed. Supports **Windows 10 (2004 or later) and Windows 11, x64**. Currently uses Diyanet prayer times for locations in Türkiye.
 
-> **First release: v1.0.0.** This release is not digitally signed. Windows may display a warning or block it on some computers.
+> **First release: v1.0.1.** This release is not digitally signed. Windows may display a warning or block it on some computers.
 
 | Light theme | Dark theme |
 | :---: | :---: |
@@ -96,7 +96,7 @@ Your location, language and preferences are saved. Switch between English and Tu
 
 ### Updates and privacy
 
-Enable **Check for app updates** in Advanced settings for daily checks. New releases trigger a notice, subject to Windows notification settings. **Update** asks before opening the download page; it does not install updates or restart the app automatically.
+Enable **Check for app updates** in Advanced settings for daily checks. New releases trigger a notice, subject to Windows notification settings. **Update** asks before opening the download page; it does not install updates or restart the app automatically. After downloading, choose **Quit** in the old app and open the new EXE. **X** only hides the window. Your settings are kept; Advanced settings shows the running version.
 
 Settings and bounded diagnostic logs stay on your device. No telemetry, advertising or automatic crash uploads. Prayer downloads contact Diyanet; optional update checks contact GitHub.
 

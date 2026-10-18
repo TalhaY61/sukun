@@ -9,7 +9,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <AssemblyName>Sukun</AssemblyName>
     <RootNamespace>Sukun.Windows</RootNamespace>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <PublishTrimmed>false</PublishTrimmed>
     <PublishAot>false</PublishAot>
     <ApplicationIcon>Assets/Brand/app.ico</ApplicationIcon>

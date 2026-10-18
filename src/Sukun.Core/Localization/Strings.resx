@@ -493,7 +493,7 @@
     <value>{0} min</value>
   </data>
   <data name="InstalledVersionHint" xml:space="preserve">
-    <value>Installed version: {0}. Check GitHub for a stable update.</value>
+    <value>Running version: {0}. Check for updates.</value>
   </data>
   <data name="NextPrayerValue" xml:space="preserve">
     <value>{0} · {1}</value>
@@ -517,10 +517,10 @@
     <value>Could not refresh times. Valid saved data was kept. {0}</value>
   </data>
   <data name="InstalledVersion" xml:space="preserve">
-    <value>Installed version: {0}</value>
+    <value>Running version: {0}</value>
   </data>
   <data name="ReleaseReadyHint" xml:space="preserve">
-    <value>{0} is available. Open the release page.</value>
+    <value>{0} is available. Open the Sükûn download website.</value>
   </data>
   <data name="CurrentVersion" xml:space="preserve">
     <value>Sükûn {0} is up to date.</value>
@@ -559,9 +559,11 @@
     <value>{0} is available. Click to review the update.</value>
   </data>
   <data name="UpdateQuestion" xml:space="preserve">
-    <value>Sükûn {0} is available. Would you like to open the download page?
+    <value>Sükûn {0} is available. Open the Sükûn download website?
 
-Playback will continue. Nothing will be installed or restarted automatically.</value>
+After downloading, choose Quit in the old app, then open the new EXE. X only hides the window. Your settings are kept.
+
+Nothing is installed or restarted automatically.</value>
   </data>
   <data name="UpdateAfterBreak" xml:space="preserve">
     <value>{0} is ready. Review it after the current pause or media test ends.</value>
@@ -571,5 +573,8 @@ Playback will continue. Nothing will be installed or restarted automatically.</v
   </data>
   <data name="ChooseLocationHelp" xml:space="preserve">
     <value>Choose your province and prayer-time area to load local prayer times. Your selection stays on this device.</value>
+  </data>
+  <data name="PortableUpdateHelp" xml:space="preserve">
+    <value>Choose Quit in the old app before opening the new EXE. X only hides it in the tray; downloading does not replace the running version.</value>
   </data>
 </root>

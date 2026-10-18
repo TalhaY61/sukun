@@ -8,12 +8,13 @@ namespace Sukun.Windows;
 
 public static class ReleaseSource
 {
+    public static Uri DownloadPage { get; } = new("https://talhay61.github.io/sukun/");
     public static GitHubRepository? Repository { get; } = GitHubRepository.Parse(typeof(ReleaseSource).Assembly
         .GetCustomAttributes<AssemblyMetadataAttribute>().FirstOrDefault(a => a.Key == "Sukun.Repository")?.Value);
     public static bool IsPrerelease => UpdateVersion.Parse(VersionLabel)?.Prerelease is not null;
     public static Version CurrentVersion { get; } = typeof(ReleaseSource).Assembly.GetName().Version ?? new Version(0, 1, 0);
     public static string VersionLabel { get; } = (typeof(ReleaseSource).Assembly
-        .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion ?? "1.0.0").Split('+')[0];
+        .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion ?? "1.0.1").Split('+')[0];
 }
 
 public sealed class SoftwareUpdateClient : IDisposable

@@ -493,7 +493,7 @@
     <value>{0} dk</value>
   </data>
   <data name="InstalledVersionHint" xml:space="preserve">
-    <value>Yüklü sürüm: {0}. GitHub’da yeni kararlı sürüm ara.</value>
+    <value>Çalışan sürüm: {0}. Yeni sürümleri denetle.</value>
   </data>
   <data name="NextPrayerValue" xml:space="preserve">
     <value>{0} · {1}</value>
@@ -517,10 +517,10 @@
     <value>Vakitler yenilenemedi. Geçerli kayıtlar korunuyor. {0}</value>
   </data>
   <data name="InstalledVersion" xml:space="preserve">
-    <value>Yüklü sürüm: {0}</value>
+    <value>Çalışan sürüm: {0}</value>
   </data>
   <data name="ReleaseReadyHint" xml:space="preserve">
-    <value>{0} hazır. Yayın sayfasını aç.</value>
+    <value>{0} hazır. Sükûn indirme sitesini aç.</value>
   </data>
   <data name="CurrentVersion" xml:space="preserve">
     <value>Sükûn {0} güncel.</value>
@@ -559,9 +559,11 @@
     <value>{0} sürümü hazır. Güncellemeyi incelemek için tıklayın.</value>
   </data>
   <data name="UpdateQuestion" xml:space="preserve">
-    <value>Sükûn {0} sürümü hazır. İndirme sayfasını açmak ister misiniz?
+    <value>Sükûn {0} sürümü hazır. Sükûn indirme sitesini açmak ister misiniz?
 
-Medya yayını devam eder. Otomatik kurulum veya yeniden başlatma yapılmaz.</value>
+Yeni dosyayı indirdikten sonra eski uygulamada Çıkış’a basıp yeni EXE’yi açın. X yalnızca pencereyi gizler. Ayarlarınız korunur.
+
+Otomatik kurulum veya yeniden başlatma yapılmaz.</value>
   </data>
   <data name="UpdateAfterBreak" xml:space="preserve">
     <value>{0} hazır. Mevcut mola veya medya testi bittikten sonra güncellemeyi inceleyebilirsiniz.</value>
@@ -571,5 +573,8 @@ Medya yayını devam eder. Otomatik kurulum veya yeniden başlatma yapılmaz.</v
   </data>
   <data name="ChooseLocationHelp" xml:space="preserve">
     <value>Namaz vakitleri için il ve vakit bölgesi seçin. Bu seçim yalnızca cihazınızda saklanır.</value>
+  </data>
+  <data name="PortableUpdateHelp" xml:space="preserve">
+    <value>Yeni EXE’yi açmadan önce eski uygulamada Çıkış’ı seçin. X yalnızca tepsiye gizler; indirmek çalışan sürümü değiştirmez.</value>
   </data>
 </root>

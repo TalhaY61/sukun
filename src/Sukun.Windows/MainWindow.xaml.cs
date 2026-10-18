@@ -525,7 +525,7 @@ public partial class MainWindow : Window
         { Notice(() => L.Get("UpdateAfterBreak", release.Tag)); return; }
         if (System.Windows.MessageBox.Show(this, L.Get("UpdateQuestion", release.Tag), L.Get("UpdateNotificationTitle"),
             MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.Yes)
-            OpenLink(release.Page);
+            OpenLink(ReleaseSource.DownloadPage);
     }
     private async void UpdateApplication(object sender, RoutedEventArgs e)
     {
@@ -605,6 +605,7 @@ public partial class MainWindow : Window
     }
     private void RenderUpdateState()
     {
+        RunningVersionText.Text = L.Get("InstalledVersion", ReleaseSource.VersionLabel);
         SoftwareUpdateLabel.Text = L.Get(checkingSoftware ? "CheckingUpdates" : availableRelease is not null ? "NewRelease" : softwareChecked ? "UpToDate" : "Update");
         SoftwareUpdateButton.ToolTip = availableRelease is { } release ? L.Get("ReleaseReadyHint", release.Tag) : L.Get("InstalledVersionHint", ReleaseSource.VersionLabel);
     }

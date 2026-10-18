@@ -456,6 +456,21 @@ Test("Fresh installations have no preset city and cannot schedule Ankara by acci
     foreach(var language in new[]{"en","tr"})
         Assert(L.ForLanguage("ChooseLocationAction",language)!="ChooseLocationAction");
 });
+Test("Current stable EXE does not offer its own release regardless of build metadata", () =>
+{
+    Assert(SoftwareRelease.FindUpdate(PublishedUpdate("v1.0.1"), repository, "1.0.1+current-commit") is null);
+    Assert(SoftwareRelease.FindUpdate(PublishedUpdate("v1.0.0"), repository, "1.0.0+downloaded-commit") is null);
+    Assert(SoftwareRelease.FindUpdate(PublishedUpdate("v1.0.1"), repository, "1.0.0+old-commit")?.Tag == "v1.0.1");
+});
+Test("Update navigation uses the public Sukun website with localized portable instructions", () =>
+{
+    Assert(ReleaseSource.DownloadPage.AbsoluteUri == "https://talhay61.github.io/sukun/");
+    foreach(var language in new[]{"en","tr"})
+    {
+        Assert(L.ForLanguage("PortableUpdateHelp",language)!="PortableUpdateHelp");
+        Assert(L.ForLanguage("UpdateQuestion",language).Contains("EXE"));
+    }
+});
 var failed = 0;
 foreach (var (name, run) in tests)
 {
