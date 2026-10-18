@@ -21,7 +21,8 @@ function updateDownload() {
   button.href=asset?.browser_download_url ?? releasesPage;
   label.textContent=!loaded?c.loading:asset?(currentRelease.prerelease?c.beta:c.stable):c.browse;
   status.textContent=!loaded?c.loadingStatus:asset?`${currentRelease.tag_name} · ${currentRelease.prerelease?c.betaStatus:c.stableStatus} · ${(asset.size/1048576).toFixed(1)} MB`:failed?c.unavailable:c.noRelease;
-  document.querySelector('.beta-note').hidden=Boolean(asset && !currentRelease.prerelease);
+  // Release-channel metadata does not establish whether the EXE is signed.
+  document.querySelector('.beta-note').hidden=false;
 }
 function setLanguage(value) {
   lang=value; const c=copy[lang]; document.documentElement.lang=lang;
