@@ -1,6 +1,8 @@
 const owner = 'TalhaY61';
 const repo = 'sukun';
-export const releasesPage = `https://github.com/${owner}/${repo}/releases`;
+// Temporary download rollback; set to null to restore automatic latest-release selection.
+export const downloadTag = 'v1.0.0';
+export const releasesPage = `https://github.com/${owner}/${repo}/releases${downloadTag ? '/tag/' + encodeURIComponent(downloadTag) : ''}`;
 export function windowsAsset(release) {
   if (!release || release.draft || !release.published_at || !Array.isArray(release.assets)) return null;
   return release.assets.find(asset => {
@@ -25,7 +27,11 @@ async function request(path) {
   if (!response.ok) throw new Error('Release service unavailable');
   return response.json();
 }
-export async function resolveRelease() {
+export async function resolveRelease(pinnedTag = downloadTag) {
+  if (pinnedTag) {
+    const pinned = await request(`releases/tags/${encodeURIComponent(pinnedTag)}`);
+    return pinned?.tag_name === pinnedTag && !pinned.prerelease && windowsAsset(pinned) ? pinned : null;
+  }
   const latest = await request('releases/latest');
   if (latest && !latest.draft && !latest.prerelease) return latest;
   return selectRelease(await request('releases?per_page=100') ?? []);

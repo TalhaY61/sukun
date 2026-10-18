@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {selectRelease,windowsAsset,resolveRelease} from './releases.js';
+import {selectRelease,windowsAsset,resolveRelease,downloadTag} from './releases.js';
 const make=(tag,beta=false)=>({tag_name:tag,draft:false,prerelease:beta,published_at:'2026-10-18T12:00:00Z',assets:[{name:'Sukun-win-x64.exe',state:'uploaded',size:100,browser_download_url:`https://github.com/TalhaY61/sukun/releases/download/${tag}/Sukun-win-x64.exe`}]});
 const beta=make('v0.1.0-beta.1',true),stable=make('v0.1.0');
 assert.equal(selectRelease([beta]),beta);
@@ -12,10 +12,22 @@ assert.equal(selectRelease([{...stable,assets:[]},beta]).prerelease,false);
 const originalFetch=globalThis.fetch;
 try {
   globalThis.fetch=async url=>String(url).endsWith('/latest')?{status:404,ok:false}:{status:200,ok:true,json:async()=>[beta]};
-  assert.equal((await resolveRelease()).tag_name,beta.tag_name);
+  assert.equal((await resolveRelease(null)).tag_name,beta.tag_name);
   globalThis.fetch=async()=>({status:200,ok:true,json:async()=>stable});
-  assert.equal((await resolveRelease()).tag_name,stable.tag_name);
+  assert.equal((await resolveRelease(null)).tag_name,stable.tag_name);
   globalThis.fetch=async()=>({status:429,ok:false});
-  await assert.rejects(resolveRelease());
+  await assert.rejects(resolveRelease(null));
+  assert.equal(downloadTag,'v1.0.0');
+  const calls=[];
+  globalThis.fetch=async url=>{calls.push(String(url));return {status:200,ok:true,json:async()=>make('v1.0.0')};};
+  assert.equal((await resolveRelease()).tag_name,'v1.0.0');
+  assert.equal(calls.length,1);
+  assert.ok(calls[0].endsWith('/releases/tags/v1.0.0'));
+  globalThis.fetch=async()=>({status:404,ok:false});
+  assert.equal(await resolveRelease(),null);
+  globalThis.fetch=async()=>({status:200,ok:true,json:async()=>make('v1.0.1')});
+  assert.equal(await resolveRelease(),null);
+  globalThis.fetch=async()=>({status:200,ok:true,json:async()=>({...make('v1.0.0'),assets:[]})});
+  assert.equal(await resolveRelease(),null);
 } finally {globalThis.fetch=originalFetch;}
-console.log('10 release resolver checks passed: stable, beta, missing/unsafe assets, rate limit.');
+console.log('17 release resolver checks passed: stable, beta, unsafe assets, rate limit and pinned download rollback.');
