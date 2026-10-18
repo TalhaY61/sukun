@@ -1,0 +1,26 @@
+name: Özellik öner
+description: Sükûn’u daha kullanışlı hale getirecek bir öneri paylaşın.
+title: "[Öneri]: "
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: Öneri özeti
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Hangi sorunu çözüyor?
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Nasıl çalışmalı?
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Ek notlar (isteğe bağlı)

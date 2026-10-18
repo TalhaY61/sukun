@@ -1,0 +1,71 @@
+name: Build and request trusted signing
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: sukun-code-signing
+  cancel-in-progress: false
+jobs:
+  sign:
+    if: github.ref == 'refs/heads/main'
+    runs-on: windows-latest
+    timeout-minutes: 45
+    environment: code-signing
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+    steps:
+      - name: Require configured signing service
+        shell: pwsh
+        env:
+          SIGNPATH_API_TOKEN: ${{ secrets.SIGNPATH_API_TOKEN }}
+          SIGNPATH_ORGANIZATION_ID: ${{ vars.SIGNPATH_ORGANIZATION_ID }}
+          SIGNPATH_PROJECT_SLUG: ${{ vars.SIGNPATH_PROJECT_SLUG }}
+          SIGNPATH_SIGNING_POLICY_SLUG: ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}
+        run: |
+          foreach ($name in @('SIGNPATH_API_TOKEN','SIGNPATH_ORGANIZATION_ID','SIGNPATH_PROJECT_SLUG','SIGNPATH_SIGNING_POLICY_SLUG')) {
+            if ([string]::IsNullOrWhiteSpace([Environment]::GetEnvironmentVariable($name))) {
+              throw "Missing $name. Complete trusted signing enrollment first. No signed release will be produced."
+            }
+          }
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - run: dotnet build Sukun.sln -c Release
+      - run: dotnet run --project tests/Sukun.Tests -c Release --no-build
+      - run: ./scripts/publish.ps1
+      - name: Upload binary for origin verification
+        id: unsigned
+        uses: actions/upload-artifact@v4
+        with:
+          name: Sukun-unsigned-for-signing
+          path: artifacts/Sukun-win-x64.exe
+          if-no-files-found: error
+          retention-days: 3
+      - name: Request trusted signature and wait for maintainer approval
+        uses: signpath/github-action-submit-signing-request@f6d04783b4569d051e0c80105fe66e82819d0092 # v3
+        with:
+          api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+          organization-id: ${{ vars.SIGNPATH_ORGANIZATION_ID }}
+          project-slug: ${{ vars.SIGNPATH_PROJECT_SLUG }}
+          signing-policy-slug: ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}
+          github-artifact-id: ${{ steps.unsigned.outputs.artifact-id }}
+          wait-for-completion: true
+          wait-for-completion-timeout-in-seconds: 1800
+          output-artifact-directory: artifacts/signed
+      - name: Verify trusted signature and package signed binary
+        shell: pwsh
+        run: ./scripts/package-signed.ps1 -Directory artifacts/signed
+      - name: Upload verified signed package
+        uses: actions/upload-artifact@v4
+        with:
+          name: Sukun-win-x64-signed
+          if-no-files-found: error
+          path: |
+            artifacts/signed/Sukun-win-x64.exe
+            artifacts/signed/Sukun-win-x64.zip
+            artifacts/signed/SHA256SUMS.txt

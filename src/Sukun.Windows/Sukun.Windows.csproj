@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <!-- WPF owns startup and reads per-monitor DPI from app.manifest.
+         WinForms is used only for NotifyIcon, not ApplicationConfiguration. -->
+    <NoWarn>$(NoWarn);WFO0003</NoWarn>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>Sukun</AssemblyName>
+    <RootNamespace>Sukun.Windows</RootNamespace>
+    <Version>0.1.0-beta.2</Version>
+    <PublishTrimmed>false</PublishTrimmed>
+    <PublishAot>false</PublishAot>
+    <ApplicationIcon>Assets/Brand/app.ico</ApplicationIcon>
+    <PlatformTarget>x64</PlatformTarget>
+    <Platforms>AnyCPU;x64</Platforms>
+    <RepositoryUrl>https://github.com/TalhaY61/sukun</RepositoryUrl>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Sukun.Core/Sukun.Core.csproj" />
+    <Resource Include="Assets/places.json" />
+    <Resource Include="Assets/Brand/*.ico" />
+    <AssemblyMetadata Include="Sukun.Repository" Value="$(RepositoryUrl)" />
+  </ItemGroup>
+</Project>

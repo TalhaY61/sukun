@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net10.0</TargetFramework></PropertyGroup>
+ <ItemGroup><ProjectReference Include="../../src/Sukun.Core/Sukun.Core.csproj"/><None Include="Fixtures/ankara.html" CopyToOutputDirectory="PreserveNewest"/></ItemGroup>
+ <ItemGroup><Compile Include="../../src/Sukun.Windows/SingleInstance.cs" Link="SingleInstance.cs"/><Compile Include="../../src/Sukun.Windows/LocalDiagnostics.cs" Link="LocalDiagnostics.cs"/><Compile Include="../../src/Sukun.Windows/LocalStore.cs" Link="LocalStore.cs"/><Compile Include="../../src/Sukun.Windows/DiyanetClient.cs" Link="DiyanetClient.cs"/></ItemGroup>
+ <ItemGroup><None Include="../../src/Sukun.Windows/Assets/places.json" Link="Fixtures/places.json" CopyToOutputDirectory="PreserveNewest"/></ItemGroup>
+</Project>

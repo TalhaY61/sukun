@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data name="Tagline" xml:space="preserve">
+    <value>Vakti gelince, küçük bir ara.</value>
+  </data>
+  <data name="AutomationTitle" xml:space="preserve">
+    <value>Otomatik duraklatma</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktif</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Kapalı</value>
+  </data>
+  <data name="TodayTimes" xml:space="preserve">
+    <value>Bugünün vakitleri</value>
+  </data>
+  <data name="ChoosePrayers" xml:space="preserve">
+    <value>İşaretli vakitlerde duraklatılır.</value>
+  </data>
+  <data name="Fajr" xml:space="preserve">
+    <value>İmsak</value>
+  </data>
+  <data name="Sunrise" xml:space="preserve">
+    <value>Güneş</value>
+  </data>
+  <data name="Dhuhr" xml:space="preserve">
+    <value>Öğle</value>
+  </data>
+  <data name="Asr" xml:space="preserve">
+    <value>İkindi</value>
+  </data>
+  <data name="Maghrib" xml:space="preserve">
+    <value>Akşam</value>
+  </data>
+  <data name="Isha" xml:space="preserve">
+    <value>Yatsı</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Konum</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Değiştir</value>
+  </data>
+  <data name="ChooseProvince" xml:space="preserve">
+    <value>İl ara…</value>
+  </data>
+  <data name="ChoosePlace" xml:space="preserve">
+    <value>Merkez / ilçe ara…</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Yenile</value>
+  </data>
+  <data name="MediaSource" xml:space="preserve">
+    <value>Medya kaynağı</value>
+  </data>
+  <data name="Scan" xml:space="preserve">
+    <value>Tara</value>
+  </data>
+  <data name="BeforePrayer" xml:space="preserve">
+    <value>Vakitten önce duraklat</value>
+  </data>
+  <data name="AfterPrayer" xml:space="preserve">
+    <value>Vakitten sonra devam et</value>
+  </data>
+  <data name="Advanced" xml:space="preserve">
+    <value>Gelişmiş ayarlar</value>
+  </data>
+  <data name="Startup" xml:space="preserve">
+    <value>Windows ile başlat</value>
+  </data>
+  <data name="RefreshTimes" xml:space="preserve">
+    <value>Vakitleri otomatik yenile</value>
+  </data>
+  <data name="CheckUpdates" xml:space="preserve">
+    <value>Yeni uygulama sürümlerini denetle</value>
+  </data>
+  <data name="TestMedia" xml:space="preserve">
+    <value>Medya kontrolünü test et</value>
+  </data>
+  <data name="CancelTest" xml:space="preserve">
+    <value>Testi iptal et</value>
+  </data>
+  <data name="OpenLog" xml:space="preserve">
+    <value>Yerel günlüğü aç</value>
+  </data>
+  <data name="TestHint" xml:space="preserve">
+    <value>Müzik açıkken başlatın: 10 sn sonra durur, doğrulandıktan 10 sn sonra devam eder.</value>
+  </data>
+  <data name="OfflineHint" xml:space="preserve">
+    <value>Kayıtlı günler çevrimdışı çalışır. Ezanın bitişi süreyle belirlenir.</value>
+  </data>
+  <data name="NoResults" xml:space="preserve">
+    <value>Eşleşen sonuç yok</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Güncelle</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>Çıkış</value>
+  </data>
+  <data name="CancelResume" xml:space="preserve">
+    <value>Otomatik devamı iptal et</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Hata bildir / öneri gönder</value>
+  </data>
+  <data name="FeedbackHint" xml:space="preserve">
+    <value>GitHub’da açılır. Hiçbir günlük otomatik gönderilmez.</value>
+  </data>
+  <data name="UpcomingBadge" xml:space="preserve">
+    <value>Sıradaki</value>
+  </data>
+  <data name="NextPrayerCaption" xml:space="preserve">
+    <value>Sıradaki namaz</value>
+  </data>
+  <data name="RemainingCaption" xml:space="preserve">
+    <value>Namaza kalan</value>
+  </data>
+  <data name="ReportIssue" xml:space="preserve">
+    <value>Hata Bildir</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>Sistem</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Açık</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Koyu</value>
+  </data>
+  <data name="AtPrayerTime" xml:space="preserve">
+    <value>Vaktinde</value>
+  </data>
+  <data name="OpenApp" xml:space="preserve">
+    <value>Sükûn’u aç</value>
+  </data>
+  <data name="MediaInitFailed" xml:space="preserve">
+    <value>Windows medya denetimi başlatılamadı. Uygulamayı yeniden açmayı deneyin.</value>
+  </data>
+  <data name="PreviewMediaOff" xml:space="preserve">
+    <value>Ön izleme modunda medya denetimi kapalı.</value>
+  </data>
+  <data name="MediaNotReady" xml:space="preserve">
+    <value>Windows medya denetimi hazır değil.</value>
+  </data>
+  <data name="SelectLocationFirst" xml:space="preserve">
+    <value>Önce il ve vakit bölgesini seçin.</value>
+  </data>
+  <data name="RefreshToday" xml:space="preserve">
+    <value>Bugünün vakitlerini yüklemek için Yenile’ye basın.</value>
+  </data>
+  <data name="SelectOnePrayer" xml:space="preserve">
+    <value>Mola verilecek en az bir vakti işaretleyin.</value>
+  </data>
+  <data name="MediaInterrupted" xml:space="preserve">
+    <value>Medya denetimi kesildi.</value>
+  </data>
+  <data name="TrialInterrupted" xml:space="preserve">
+    <value>Test kesildi. Oynatıcıdan devam edin.</value>
+  </data>
+  <data name="OnBreak" xml:space="preserve">
+    <value>Mola</value>
+  </data>
+  <data name="AutomationHint" xml:space="preserve">
+    <value>Seçili vakitlerde çalan medyaya otomatik ara verilir.</value>
+  </data>
+  <data name="ChooseLocationTitle" xml:space="preserve">
+    <value>Konumunuzu seçin</value>
+  </data>
+  <data name="WaitingTimes" xml:space="preserve">
+    <value>Vakit bekleniyor</value>
+  </data>
+  <data name="AutomationOff" xml:space="preserve">
+    <value>Otomatik duraklatma kapalı.</value>
+  </data>
+  <data name="WaitingBreak" xml:space="preserve">
+    <value>Sonraki mola için kayıtlı vakit bekleniyor.</value>
+  </data>
+  <data name="DownloadingTimes" xml:space="preserve">
+    <value>Diyanet’ten indiriliyor…</value>
+  </data>
+  <data name="ProvinceLoadsCenter" xml:space="preserve">
+    <value>İl seçince merkez otomatik yüklenir.</value>
+  </data>
+  <data name="NoTimesToday" xml:space="preserve">
+    <value>Bugün için kayıtlı vakit yok. Yenileyin.</value>
+  </data>
+  <data name="DistrictExplanation" xml:space="preserve">
+    <value>Diyanet’in yayımladığı vakit bölgeleri esas alınır; idari ilçelerin tamamı ayrı listelenmez.</value>
+  </data>
+  <data name="SearchMedia" xml:space="preserve">
+    <value>Medya kaynağı ara…</value>
+  </data>
+  <data name="SourceUnavailableHint" xml:space="preserve">
+    <value>Önceki seçim kullanılamıyor. Otomatik olarak başka kaynağa geçilmez.</value>
+  </data>
+  <data name="AppWillReconnect" xml:space="preserve">
+    <value>Aynı uygulama açılınca yeniden algılanır.</value>
+  </data>
+  <data name="SessionClosedHint" xml:space="preserve">
+    <value>Bu oturum kapandı. Kalıcı takip için listeden uygulamayı seçin.</value>
+  </data>
+  <data name="NoMediaHint" xml:space="preserve">
+    <value>Medya bulunamadı. Oynatıcıyı açıp Tara’ya basın.</value>
+  </data>
+  <data name="PinnedSessionHint" xml:space="preserve">
+    <value>Yalnızca bu oturum. Kapanırsa yeniden seçmeniz gerekir.</value>
+  </data>
+  <data name="AppSourceHint" xml:space="preserve">
+    <value>Bu uygulamada tek oturum çalıyorsa denetlenir.</value>
+  </data>
+  <data name="AutoSourceHint" xml:space="preserve">
+    <value>Tek kaynak çalıyorsa seçilir; birden fazlaysa oturum seçin.</value>
+  </data>
+  <data name="TrayActive" xml:space="preserve">
+    <value>Sükûn · Otomatik duraklatma aktif</value>
+  </data>
+  <data name="TrayOff" xml:space="preserve">
+    <value>Sükûn · Otomatik duraklatma kapalı</value>
+  </data>
+  <data name="SettingsChanged" xml:space="preserve">
+    <value>Ayar değişti. Mevcut mola yeniden başlatılmaz; kontrol sizde.</value>
+  </data>
+  <data name="SettingsTrialCancelled" xml:space="preserve">
+    <value>Ayar değişti. Test iptal edildi; oynatıcıdan devam edin.</value>
+  </data>
+  <data name="AppClosed" xml:space="preserve">
+    <value>Uygulama kapatıldı.</value>
+  </data>
+  <data name="ClockTrialCancelled" xml:space="preserve">
+    <value>Saat veya güç durumu değişti. Test iptal edildi; oynatıcıdan devam edin.</value>
+  </data>
+  <data name="TrialConflict" xml:space="preserve">
+    <value>Gerçek mola yaklaşıyor veya sürüyor. Testi daha sonra başlatın.</value>
+  </data>
+  <data name="TrialNoSessions" xml:space="preserve">
+    <value>Windows’a bildirilmiş medya oturumu yok. Önce müzik açın.</value>
+  </data>
+  <data name="TrialWait" xml:space="preserve">
+    <value>10 saniye sonra seçili kaynak test edilecek…</value>
+  </data>
+  <data name="TrialStartFailed" xml:space="preserve">
+    <value>Test başlatılamadı.</value>
+  </data>
+  <data name="TrialPauseConfirmed" xml:space="preserve">
+    <value>Duraklatma doğrulandı. 10 saniye sonra devam edilecek…</value>
+  </data>
+  <data name="TrialCancelled" xml:space="preserve">
+    <value>Test iptal edildi. Medya durakladıysa oynatıcıdan devam edin.</value>
+  </data>
+  <data name="NoUpdateRepository" xml:space="preserve">
+    <value>GitHub güncelleme adresi bu derlemede tanımlanmamış.</value>
+  </data>
+  <data name="CheckingUpdates" xml:space="preserve">
+    <value>Denetleniyor…</value>
+  </data>
+  <data name="UpToDate" xml:space="preserve">
+    <value>Güncel</value>
+  </data>
+  <data name="NewRelease" xml:space="preserve">
+    <value>Yeni sürüm</value>
+  </data>
+  <data name="NoFeedbackRepository" xml:space="preserve">
+    <value>Geri bildirim için GitHub deposu tanımlanmamış.</value>
+  </data>
+  <data name="NoRepository" xml:space="preserve">
+    <value>GitHub adresi bu derlemede tanımlanmamış.</value>
+  </data>
+  <data name="NetworkError" xml:space="preserve">
+    <value>İnternet bağlantısını kontrol edip yeniden deneyin.</value>
+  </data>
+  <data name="OperationFailed" xml:space="preserve">
+    <value>İşlem tamamlanamadı; otomatik devam için oynatıcıyı kullanın.</value>
+  </data>
+  <data name="StartupFailed" xml:space="preserve">
+    <value>Sükûn başlatılamadı. Dosyaların eksiksiz olduğundan emin olun.</value>
+  </data>
+  <data name="MigrationWarning" xml:space="preserve">
+    <value>Önceki sürümün ayarları tamamen aktarılamadı. Kayıtlı eski veriler korunuyor.</value>
+  </data>
+  <data name="SettingsWarning" xml:space="preserve">
+    <value>Ayar dosyası okunamadı. Güvenli başlangıç: otomasyon kapalı.</value>
+  </data>
+  <data name="TimetableWarning" xml:space="preserve">
+    <value>Kayıtlı takvim okunamadı. Vakitleri yeniden indirin.</value>
+  </data>
+  <data name="InvalidSettings" xml:space="preserve">
+    <value>Ayar dosyasında geçersiz değer var.</value>
+  </data>
+  <data name="SixTimesRequired" xml:space="preserve">
+    <value>Altı vakit gerekli.</value>
+  </data>
+  <data name="InvalidTime" xml:space="preserve">
+    <value>Geçersiz vakit saati.</value>
+  </data>
+  <data name="InvalidTimeOrder" xml:space="preserve">
+    <value>Vakit sırası geçersiz.</value>
+  </data>
+  <data name="InvalidTimetable" xml:space="preserve">
+    <value>Geçersiz takvim dosyası.</value>
+  </data>
+  <data name="TimetableDayMismatch" xml:space="preserve">
+    <value>Takvim günü eşleşmiyor.</value>
+  </data>
+  <data name="ResponseTooLarge" xml:space="preserve">
+    <value>Yanıt beklenenden büyük.</value>
+  </data>
+  <data name="WrongDiyanetPlace" xml:space="preserve">
+    <value>Diyanet farklı bir yerin sayfasını döndürdü.</value>
+  </data>
+  <data name="UnknownMonth" xml:space="preserve">
+    <value>Takvim ayı tanınmadı.</value>
+  </data>
+  <data name="ConflictingTimes" xml:space="preserve">
+    <value>Aynı gün için çelişkili vakitler var.</value>
+  </data>
+  <data name="IncompleteTimetable" xml:space="preserve">
+    <value>Diyanet tablosunda önümüzdeki 14 gün eksiksiz değil. Önceki veri korundu.</value>
+  </data>
+  <data name="InvalidPlaceId" xml:space="preserve">
+    <value>Geçersiz yer kimliği.</value>
+  </data>
+  <data name="MissingRedirect" xml:space="preserve">
+    <value>Yönlendirme adresi yok.</value>
+  </data>
+  <data name="UnsafeRedirect" xml:space="preserve">
+    <value>Resmî site dışına yönlendirme reddedildi.</value>
+  </data>
+  <data name="TooManyRedirects" xml:space="preserve">
+    <value>Çok fazla yönlendirme.</value>
+  </data>
+  <data name="ReleaseResponseTooLarge" xml:space="preserve">
+    <value>Sürüm yanıtı beklenenden büyük.</value>
+  </data>
+  <data name="UnstableRelease" xml:space="preserve">
+    <value>Bu yayın kararlı sürüm değil.</value>
+  </data>
+  <data name="UnknownVersion" xml:space="preserve">
+    <value>Sürüm numarası tanınmadı.</value>
+  </data>
+  <data name="UntrustedRelease" xml:space="preserve">
+    <value>Yayın adresi yapılandırılmış GitHub deposuna ait değil.</value>
+  </data>
+  <data name="NoStableRelease" xml:space="preserve">
+    <value>Henüz erişilebilir kararlı bir GitHub Release yok.</value>
+  </data>
+  <data name="GitHubRateLimit" xml:space="preserve">
+    <value>GitHub istek sınırına ulaşıldı. Daha sonra yeniden deneyin.</value>
+  </data>
+  <data name="GenericPlayer" xml:space="preserve">
+    <value>Medya oynatıcı</value>
+  </data>
+  <data name="Automatic" xml:space="preserve">
+    <value>Otomatik</value>
+  </data>
+  <data name="AutoOnlyPlaying" xml:space="preserve">
+    <value>Yalnızca tek kaynak çalıyorsa denetlenir.</value>
+  </data>
+  <data name="Playing" xml:space="preserve">
+    <value>Çalıyor</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Duraklatıldı</value>
+  </data>
+  <data name="NotReady" xml:space="preserve">
+    <value>Hazır değil</value>
+  </data>
+  <data name="ControllerOff" xml:space="preserve">
+    <value>Otomasyon kapalı.</value>
+  </data>
+  <data name="ClockRebased" xml:space="preserve">
+    <value>Saat değişti; zamanlayıcı yeniden hesaplandı. Müzik kendiliğinden başlatılmaz.</value>
+  </data>
+  <data name="MediaSessionError" xml:space="preserve">
+    <value>Medya oturumuna erişilemedi. Otomatik devam iptal edildi.</value>
+  </data>
+  <data name="DisabledNoResume" xml:space="preserve">
+    <value>Otomatik duraklatma kapalı. Müzik otomatik başlatılmaz.</value>
+  </data>
+  <data name="ReadyPastSkipped" xml:space="preserve">
+    <value>Hazır. Uygulama açılmadan başlayan molalar atlandı.</value>
+  </data>
+  <data name="PlayerChanged" xml:space="preserve">
+    <value>Oynatıcı değişti veya kullanıcı müdahale etti. Otomatik devam iptal edildi.</value>
+  </data>
+  <data name="ResumeNoIdentity" xml:space="preserve">
+    <value>Mola bitti. Medya kimliği doğrulanamadığı için oynatıcıdan devam edin.</value>
+  </data>
+  <data name="ResumeConfirmed" xml:space="preserve">
+    <value>Mola bitti. Müzik devam ediyor.</value>
+  </data>
+  <data name="ResumeFailed" xml:space="preserve">
+    <value>Devam komutu doğrulanamadı. Oynatıcıdan devam edebilirsiniz.</value>
+  </data>
+  <data name="LateBreakSkipped" xml:space="preserve">
+    <value>Gecikmiş mola atlandı.</value>
+  </data>
+  <data name="NoPlayingSource" xml:space="preserve">
+    <value>Seçilen kaynakta çalan medya yok. Bu mola atlandı.</value>
+  </data>
+  <data name="AmbiguousSources" xml:space="preserve">
+    <value>Birden fazla kaynak çalıyor. Kontrol edilecek oturumu seçin; bu mola atlandı.</value>
+  </data>
+  <data name="PauseFailed" xml:space="preserve">
+    <value>Duraklatma doğrulanamadı. Oynatıcı desteklemiyor veya oturum kapandı; otomatik devam yapılmayacak.</value>
+  </data>
+  <data name="Appearance" xml:space="preserve">
+    <value>Görünüm</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Dil</value>
+  </data>
+  <data name="ProvinceSearch" xml:space="preserve">
+    <value>İl ara</value>
+  </data>
+  <data name="DistrictSearch" xml:space="preserve">
+    <value>Merkez veya ilçe ara</value>
+  </data>
+  <data name="MediaSearchLabel" xml:space="preserve">
+    <value>Medya kaynağı ara</value>
+  </data>
+  <data name="BeforePrayerLabel" xml:space="preserve">
+    <value>Vakitten kaç saniye önce</value>
+  </data>
+  <data name="AfterPrayerLabel" xml:space="preserve">
+    <value>Vakitten kaç dakika sonra devam</value>
+  </data>
+  <data name="FajrHint" xml:space="preserve">
+    <value>İmsak, yerel sabah ezanı saatiyle farklı olabilir.</value>
+  </data>
+  <data name="SunriseHint" xml:space="preserve">
+    <value>Güneş doğuşudur; ezan molası verilmez.</value>
+  </data>
+  <data name="UpdateOptInHint" xml:space="preserve">
+    <value>İsteğe bağlıdır; günde en fazla bir GitHub kontrolü yapar.</value>
+  </data>
+  <data name="GitHubHint" xml:space="preserve">
+    <value>Sükûn’un kaynak kodunu aç.</value>
+  </data>
+  <data name="ReportIssueHint" xml:space="preserve">
+    <value>GitHub’da hata bildir veya öneri gönder. Hiçbir günlük otomatik eklenmez.</value>
+  </data>
+  <data name="QuitHint" xml:space="preserve">
+    <value>Uygulamadan tamamen çık.</value>
+  </data>
+  <data name="InitialTimes" xml:space="preserve">
+    <value>Vakitler hazırlanıyor…</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Evet</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Hayır</value>
+  </data>
+  <data name="PauseCommand" xml:space="preserve">
+    <value>Duraklat</value>
+  </data>
+  <data name="PlayCommand" xml:space="preserve">
+    <value>Oynat</value>
+  </data>
+  <data name="AutoMultiple" xml:space="preserve">
+    <value>Birden fazla kaynak çalıyor</value>
+  </data>
+  <data name="AutoNone" xml:space="preserve">
+    <value>Çalan kaynak yok</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>{0} saniye</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>{0} dakika</value>
+  </data>
+  <data name="HoursMinutes" xml:space="preserve">
+    <value>{0} sa {1} dk</value>
+  </data>
+  <data name="MinutesShort" xml:space="preserve">
+    <value>{0} dk</value>
+  </data>
+  <data name="InstalledVersionHint" xml:space="preserve">
+    <value>Yüklü sürüm: {0}. GitHub’da yeni kararlı sürüm ara.</value>
+  </data>
+  <data name="NextPrayerValue" xml:space="preserve">
+    <value>{0} · {1}</value>
+  </data>
+  <data name="NextBreakValue" xml:space="preserve">
+    <value>Sonraki mola · {0} {1} · Türkiye saati</value>
+  </data>
+  <data name="OfflineDays" xml:space="preserve">
+    <value>{0} gün çevrimdışı hazır · Diyanet</value>
+  </data>
+  <data name="OfflineUntil" xml:space="preserve">
+    <value>{0} tarihine kadar kesintisiz kayıtlı. İnternet olmadan bu günlerde çalışır.</value>
+  </data>
+  <data name="SourceClosed" xml:space="preserve">
+    <value>{0} — kapalı</value>
+  </data>
+  <data name="CenterPlace" xml:space="preserve">
+    <value>{0} (merkez)</value>
+  </data>
+  <data name="RefreshFailed" xml:space="preserve">
+    <value>Vakitler yenilenemedi. Geçerli kayıtlar korunuyor. {0}</value>
+  </data>
+  <data name="InstalledVersion" xml:space="preserve">
+    <value>Yüklü sürüm: {0}</value>
+  </data>
+  <data name="ReleaseReadyHint" xml:space="preserve">
+    <value>{0} hazır. Yayın sayfasını aç.</value>
+  </data>
+  <data name="CurrentVersion" xml:space="preserve">
+    <value>Sükûn {0} güncel.</value>
+  </data>
+  <data name="ReleaseReady" xml:space="preserve">
+    <value>{0} hazır. Güncelle düğmesi GitHub yayın sayfasını açar; mevcut ayarlarınız korunur.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>Sürüm kontrolü tamamlanamadı. {0}</value>
+  </data>
+  <data name="OpenSessions" xml:space="preserve">
+    <value>{0} oturum açık; aşağıdan birini seçin.</value>
+  </data>
+  <data name="PauseUntil" xml:space="preserve">
+    <value>{0} molası; {1}’te devam.</value>
+  </data>
+  <data name="PrayerSelection" xml:space="preserve">
+    <value>{0} molası</value>
+  </data>
+  <data name="AutomaticSource" xml:space="preserve">
+    <value>Otomatik · {0}</value>
+  </data>
+  <data name="TrialSession" xml:space="preserve">
+    <value>{0} · {1} · Duraklat: {2}, Oynat: {3}</value>
+  </data>
+  <data name="OfflineDay" xml:space="preserve">
+    <value>{0} gün çevrimdışı hazır · Diyanet</value>
+  </data>
+</root>

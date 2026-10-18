@@ -1,0 +1,15 @@
+.tools/
+**/bin/
+**/obj/
+artifacts/
+.vs/
+*.user
+
+# Local diagnostics and credentials
+*.log
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.key

@@ -1,0 +1,59 @@
+name: Hata bildir
+description: Sükûn ile yaşadığınız bir sorunu bildirin.
+title: "[Hata]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Bu bildirim GitHub üzerinde herkese açık olur. Hiçbir günlük otomatik eklenmez."
+  - type: input
+    id: summary
+    attributes:
+      label: Kısa açıklama
+      placeholder: Sorunu tek cümleyle anlatın.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Tekrar adımları
+      placeholder: "1. Oynatıcıyı açtım…\n2. …"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Beklenen davranış
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Olan davranış
+    validations:
+      required: true
+  - type: input
+    id: app_version
+    attributes:
+      label: Uygulama sürümü
+      placeholder: "Örnek: 0.1.0 (bilmiyorsanız belirtin)"
+    validations:
+      required: true
+  - type: input
+    id: windows_version
+    attributes:
+      label: Windows sürümü
+      placeholder: "Örnek: Windows 11 24H2, x64"
+    validations:
+      required: true
+  - type: input
+    id: player
+    attributes:
+      label: Kullanılan medya oynatıcı
+      placeholder: "Örnek: Spotify, YT Music, Chrome veya Windows Media Player"
+    validations:
+      required: true
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Ekran görüntüsü veya log (isteğe bağlı)
+      description: "Dosyayı buraya bırakabilirsiniz. Kişisel bilgileri kontrol edin; dosya eklemek zorunlu değildir."

@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data name="Tagline" xml:space="preserve">
+    <value>A little pause when it's time.</value>
+  </data>
+  <data name="AutomationTitle" xml:space="preserve">
+    <value>Auto pause</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="TodayTimes" xml:space="preserve">
+    <value>Today’s prayers</value>
+  </data>
+  <data name="ChoosePrayers" xml:space="preserve">
+    <value>Playback pauses at marked prayers.</value>
+  </data>
+  <data name="Fajr" xml:space="preserve">
+    <value>Fajr</value>
+  </data>
+  <data name="Sunrise" xml:space="preserve">
+    <value>Sunrise</value>
+  </data>
+  <data name="Dhuhr" xml:space="preserve">
+    <value>Dhuhr</value>
+  </data>
+  <data name="Asr" xml:space="preserve">
+    <value>Asr</value>
+  </data>
+  <data name="Maghrib" xml:space="preserve">
+    <value>Maghrib</value>
+  </data>
+  <data name="Isha" xml:space="preserve">
+    <value>Isha</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="ChooseProvince" xml:space="preserve">
+    <value>Search provinces…</value>
+  </data>
+  <data name="ChoosePlace" xml:space="preserve">
+    <value>Search districts…</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="MediaSource" xml:space="preserve">
+    <value>Media source</value>
+  </data>
+  <data name="Scan" xml:space="preserve">
+    <value>Scan</value>
+  </data>
+  <data name="BeforePrayer" xml:space="preserve">
+    <value>Pause before prayer</value>
+  </data>
+  <data name="AfterPrayer" xml:space="preserve">
+    <value>Resume after prayer</value>
+  </data>
+  <data name="Advanced" xml:space="preserve">
+    <value>Advanced settings</value>
+  </data>
+  <data name="Startup" xml:space="preserve">
+    <value>Start with Windows</value>
+  </data>
+  <data name="RefreshTimes" xml:space="preserve">
+    <value>Refresh prayer times automatically</value>
+  </data>
+  <data name="CheckUpdates" xml:space="preserve">
+    <value>Check for app updates</value>
+  </data>
+  <data name="TestMedia" xml:space="preserve">
+    <value>Try media controls</value>
+  </data>
+  <data name="CancelTest" xml:space="preserve">
+    <value>Cancel trial</value>
+  </data>
+  <data name="OpenLog" xml:space="preserve">
+    <value>Open local logs</value>
+  </data>
+  <data name="TestHint" xml:space="preserve">
+    <value>Start music first. It pauses after 10 sec, then resumes 10 sec after confirmation.</value>
+  </data>
+  <data name="OfflineHint" xml:space="preserve">
+    <value>Saved dates work offline. Playback resumes after the set duration.</value>
+  </data>
+  <data name="NoResults" xml:space="preserve">
+    <value>No matches</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>Quit</value>
+  </data>
+  <data name="CancelResume" xml:space="preserve">
+    <value>Cancel auto resume</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Report an issue / suggest a feature</value>
+  </data>
+  <data name="FeedbackHint" xml:space="preserve">
+    <value>Opens GitHub. Logs are never sent automatically.</value>
+  </data>
+  <data name="UpcomingBadge" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="NextPrayerCaption" xml:space="preserve">
+    <value>Next prayer</value>
+  </data>
+  <data name="RemainingCaption" xml:space="preserve">
+    <value>Until prayer</value>
+  </data>
+  <data name="ReportIssue" xml:space="preserve">
+    <value>Report issue</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="AtPrayerTime" xml:space="preserve">
+    <value>At prayer time</value>
+  </data>
+  <data name="OpenApp" xml:space="preserve">
+    <value>Open Sükûn</value>
+  </data>
+  <data name="MediaInitFailed" xml:space="preserve">
+    <value>Windows media controls could not start. Try reopening Sükûn.</value>
+  </data>
+  <data name="PreviewMediaOff" xml:space="preserve">
+    <value>Media controls are off in preview mode.</value>
+  </data>
+  <data name="MediaNotReady" xml:space="preserve">
+    <value>Windows media controls are not ready.</value>
+  </data>
+  <data name="SelectLocationFirst" xml:space="preserve">
+    <value>Choose a province and prayer-time district first.</value>
+  </data>
+  <data name="RefreshToday" xml:space="preserve">
+    <value>Select Refresh to load today’s prayer times.</value>
+  </data>
+  <data name="SelectOnePrayer" xml:space="preserve">
+    <value>Mark at least one prayer for auto pause.</value>
+  </data>
+  <data name="MediaInterrupted" xml:space="preserve">
+    <value>Media controls were interrupted.</value>
+  </data>
+  <data name="TrialInterrupted" xml:space="preserve">
+    <value>The trial stopped. Resume playback in your player.</value>
+  </data>
+  <data name="OnBreak" xml:space="preserve">
+    <value>Paused</value>
+  </data>
+  <data name="AutomationHint" xml:space="preserve">
+    <value>Playing media pauses automatically at marked prayers.</value>
+  </data>
+  <data name="ChooseLocationTitle" xml:space="preserve">
+    <value>Choose your location</value>
+  </data>
+  <data name="WaitingTimes" xml:space="preserve">
+    <value>Waiting for prayer times</value>
+  </data>
+  <data name="AutomationOff" xml:space="preserve">
+    <value>Auto pause is off.</value>
+  </data>
+  <data name="WaitingBreak" xml:space="preserve">
+    <value>Waiting for saved times to schedule the next pause.</value>
+  </data>
+  <data name="DownloadingTimes" xml:space="preserve">
+    <value>Downloading from Diyanet…</value>
+  </data>
+  <data name="ProvinceLoadsCenter" xml:space="preserve">
+    <value>Choosing a province loads its central district.</value>
+  </data>
+  <data name="NoTimesToday" xml:space="preserve">
+    <value>No saved times for today. Select Refresh.</value>
+  </data>
+  <data name="DistrictExplanation" xml:space="preserve">
+    <value>Uses Diyanet’s prayer-time districts. Some administrative districts share a timetable.</value>
+  </data>
+  <data name="SearchMedia" xml:space="preserve">
+    <value>Search media sources…</value>
+  </data>
+  <data name="SourceUnavailableHint" xml:space="preserve">
+    <value>The saved source is unavailable. Another source will not be selected automatically.</value>
+  </data>
+  <data name="AppWillReconnect" xml:space="preserve">
+    <value>Detected again when the same app reopens.</value>
+  </data>
+  <data name="SessionClosedHint" xml:space="preserve">
+    <value>This session closed. Choose the app to keep following it.</value>
+  </data>
+  <data name="NoMediaHint" xml:space="preserve">
+    <value>No media found. Open your player and select Scan.</value>
+  </data>
+  <data name="PinnedSessionHint" xml:space="preserve">
+    <value>Controls this session only. Select it again if it closes.</value>
+  </data>
+  <data name="AppSourceHint" xml:space="preserve">
+    <value>Controls this app when exactly one of its sessions is playing.</value>
+  </data>
+  <data name="AutoSourceHint" xml:space="preserve">
+    <value>Selects the only playing source. If several are playing, choose a session.</value>
+  </data>
+  <data name="TrayActive" xml:space="preserve">
+    <value>Sükûn · Auto pause on</value>
+  </data>
+  <data name="TrayOff" xml:space="preserve">
+    <value>Sükûn · Auto pause off</value>
+  </data>
+  <data name="SettingsChanged" xml:space="preserve">
+    <value>Settings changed. The current pause will not restart; playback is yours to control.</value>
+  </data>
+  <data name="SettingsTrialCancelled" xml:space="preserve">
+    <value>Settings changed. The trial was cancelled; resume in your player.</value>
+  </data>
+  <data name="AppClosed" xml:space="preserve">
+    <value>Sükûn closed.</value>
+  </data>
+  <data name="ClockTrialCancelled" xml:space="preserve">
+    <value>Clock or power state changed. The trial was cancelled; resume in your player.</value>
+  </data>
+  <data name="TrialConflict" xml:space="preserve">
+    <value>A scheduled pause is near or in progress. Try again later.</value>
+  </data>
+  <data name="TrialNoSessions" xml:space="preserve">
+    <value>Windows reports no media sessions. Start music first.</value>
+  </data>
+  <data name="TrialWait" xml:space="preserve">
+    <value>The selected source will be checked in 10 sec…</value>
+  </data>
+  <data name="TrialStartFailed" xml:space="preserve">
+    <value>The trial could not start.</value>
+  </data>
+  <data name="TrialPauseConfirmed" xml:space="preserve">
+    <value>Pause confirmed. Playback will resume in 10 sec…</value>
+  </data>
+  <data name="TrialCancelled" xml:space="preserve">
+    <value>Trial cancelled. If playback is paused, resume it in your player.</value>
+  </data>
+  <data name="NoUpdateRepository" xml:space="preserve">
+    <value>No GitHub update repository is configured in this build.</value>
+  </data>
+  <data name="CheckingUpdates" xml:space="preserve">
+    <value>Checking…</value>
+  </data>
+  <data name="UpToDate" xml:space="preserve">
+    <value>Up to date</value>
+  </data>
+  <data name="NewRelease" xml:space="preserve">
+    <value>New version</value>
+  </data>
+  <data name="NoFeedbackRepository" xml:space="preserve">
+    <value>No GitHub repository is configured for feedback.</value>
+  </data>
+  <data name="NoRepository" xml:space="preserve">
+    <value>No GitHub address is configured in this build.</value>
+  </data>
+  <data name="NetworkError" xml:space="preserve">
+    <value>Check your internet connection and try again.</value>
+  </data>
+  <data name="OperationFailed" xml:space="preserve">
+    <value>Could not complete the action. Resume playback in your player.</value>
+  </data>
+  <data name="StartupFailed" xml:space="preserve">
+    <value>Sükûn could not start. Make sure all app files are present.</value>
+  </data>
+  <data name="MigrationWarning" xml:space="preserve">
+    <value>Some settings could not be transferred. Your previous files are safe.</value>
+  </data>
+  <data name="SettingsWarning" xml:space="preserve">
+    <value>Settings could not be read. Auto pause is off for a safe start.</value>
+  </data>
+  <data name="TimetableWarning" xml:space="preserve">
+    <value>The saved timetable could not be read. Download prayer times again.</value>
+  </data>
+  <data name="InvalidSettings" xml:space="preserve">
+    <value>The settings file contains an invalid value.</value>
+  </data>
+  <data name="SixTimesRequired" xml:space="preserve">
+    <value>Six prayer times are required.</value>
+  </data>
+  <data name="InvalidTime" xml:space="preserve">
+    <value>Invalid prayer time.</value>
+  </data>
+  <data name="InvalidTimeOrder" xml:space="preserve">
+    <value>Prayer times are out of order.</value>
+  </data>
+  <data name="InvalidTimetable" xml:space="preserve">
+    <value>Invalid timetable file.</value>
+  </data>
+  <data name="TimetableDayMismatch" xml:space="preserve">
+    <value>The timetable date does not match.</value>
+  </data>
+  <data name="ResponseTooLarge" xml:space="preserve">
+    <value>The response is larger than expected.</value>
+  </data>
+  <data name="WrongDiyanetPlace" xml:space="preserve">
+    <value>Diyanet returned a different location.</value>
+  </data>
+  <data name="UnknownMonth" xml:space="preserve">
+    <value>The timetable month was not recognized.</value>
+  </data>
+  <data name="ConflictingTimes" xml:space="preserve">
+    <value>Conflicting prayer times were found for the same date.</value>
+  </data>
+  <data name="IncompleteTimetable" xml:space="preserve">
+    <value>Diyanet’s next 14 days are incomplete. Previous data was kept.</value>
+  </data>
+  <data name="InvalidPlaceId" xml:space="preserve">
+    <value>Invalid location ID.</value>
+  </data>
+  <data name="MissingRedirect" xml:space="preserve">
+    <value>The redirect address is missing.</value>
+  </data>
+  <data name="UnsafeRedirect" xml:space="preserve">
+    <value>A redirect outside the official website was rejected.</value>
+  </data>
+  <data name="TooManyRedirects" xml:space="preserve">
+    <value>Too many redirects.</value>
+  </data>
+  <data name="ReleaseResponseTooLarge" xml:space="preserve">
+    <value>The release response is larger than expected.</value>
+  </data>
+  <data name="UnstableRelease" xml:space="preserve">
+    <value>This is not a stable release.</value>
+  </data>
+  <data name="UnknownVersion" xml:space="preserve">
+    <value>The version number was not recognized.</value>
+  </data>
+  <data name="UntrustedRelease" xml:space="preserve">
+    <value>The release URL does not belong to the configured GitHub repository.</value>
+  </data>
+  <data name="NoStableRelease" xml:space="preserve">
+    <value>No stable GitHub release is available yet.</value>
+  </data>
+  <data name="GitHubRateLimit" xml:space="preserve">
+    <value>GitHub’s request limit was reached. Try again later.</value>
+  </data>
+  <data name="GenericPlayer" xml:space="preserve">
+    <value>Media player</value>
+  </data>
+  <data name="Automatic" xml:space="preserve">
+    <value>Automatic</value>
+  </data>
+  <data name="AutoOnlyPlaying" xml:space="preserve">
+    <value>Controls the only playing source.</value>
+  </data>
+  <data name="Playing" xml:space="preserve">
+    <value>Playing</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Paused</value>
+  </data>
+  <data name="NotReady" xml:space="preserve">
+    <value>Not ready</value>
+  </data>
+  <data name="ControllerOff" xml:space="preserve">
+    <value>Auto pause is off.</value>
+  </data>
+  <data name="ClockRebased" xml:space="preserve">
+    <value>Clock changed; the schedule was recalculated. Playback will not start automatically.</value>
+  </data>
+  <data name="MediaSessionError" xml:space="preserve">
+    <value>The media session could not be reached. Auto resume was cancelled.</value>
+  </data>
+  <data name="DisabledNoResume" xml:space="preserve">
+    <value>Auto pause is off. Playback will not start automatically.</value>
+  </data>
+  <data name="ReadyPastSkipped" xml:space="preserve">
+    <value>Ready. Pauses that began before Sükûn opened were skipped.</value>
+  </data>
+  <data name="PlayerChanged" xml:space="preserve">
+    <value>The player changed or playback was adjusted. Auto resume was cancelled.</value>
+  </data>
+  <data name="ResumeNoIdentity" xml:space="preserve">
+    <value>Pause ended. Media identity could not be verified; resume in your player.</value>
+  </data>
+  <data name="ResumeConfirmed" xml:space="preserve">
+    <value>Pause ended. Playback resumed.</value>
+  </data>
+  <data name="ResumeFailed" xml:space="preserve">
+    <value>Resume could not be confirmed. Resume in your player.</value>
+  </data>
+  <data name="LateBreakSkipped" xml:space="preserve">
+    <value>An overdue pause was skipped.</value>
+  </data>
+  <data name="NoPlayingSource" xml:space="preserve">
+    <value>Nothing is playing in the selected source. This pause was skipped.</value>
+  </data>
+  <data name="AmbiguousSources" xml:space="preserve">
+    <value>Several sources are playing. Choose a session; this pause was skipped.</value>
+  </data>
+  <data name="PauseFailed" xml:space="preserve">
+    <value>Pause could not be confirmed. The player may be unsupported or closed; playback will not resume automatically.</value>
+  </data>
+  <data name="Appearance" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="ProvinceSearch" xml:space="preserve">
+    <value>Search provinces</value>
+  </data>
+  <data name="DistrictSearch" xml:space="preserve">
+    <value>Search districts</value>
+  </data>
+  <data name="MediaSearchLabel" xml:space="preserve">
+    <value>Search media sources</value>
+  </data>
+  <data name="BeforePrayerLabel" xml:space="preserve">
+    <value>Seconds before prayer</value>
+  </data>
+  <data name="AfterPrayerLabel" xml:space="preserve">
+    <value>Minutes after prayer to resume</value>
+  </data>
+  <data name="FajrHint" xml:space="preserve">
+    <value>Fajr time may differ from your local morning call to prayer.</value>
+  </data>
+  <data name="SunriseHint" xml:space="preserve">
+    <value>Sunrise is informational. Playback does not pause here.</value>
+  </data>
+  <data name="UpdateOptInHint" xml:space="preserve">
+    <value>Optional. Checks GitHub at most once a day.</value>
+  </data>
+  <data name="GitHubHint" xml:space="preserve">
+    <value>Open Sükûn’s source code.</value>
+  </data>
+  <data name="ReportIssueHint" xml:space="preserve">
+    <value>Report a bug or suggest a feature on GitHub. Logs are never attached automatically.</value>
+  </data>
+  <data name="QuitHint" xml:space="preserve">
+    <value>Quit Sükûn completely.</value>
+  </data>
+  <data name="InitialTimes" xml:space="preserve">
+    <value>Preparing prayer times…</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PauseCommand" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="PlayCommand" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="AutoMultiple" xml:space="preserve">
+    <value>Several sources are playing</value>
+  </data>
+  <data name="AutoNone" xml:space="preserve">
+    <value>Nothing is playing</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>{0} sec</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>{0} min</value>
+  </data>
+  <data name="HoursMinutes" xml:space="preserve">
+    <value>{0} hr {1} min</value>
+  </data>
+  <data name="MinutesShort" xml:space="preserve">
+    <value>{0} min</value>
+  </data>
+  <data name="InstalledVersionHint" xml:space="preserve">
+    <value>Installed version: {0}. Check GitHub for a stable update.</value>
+  </data>
+  <data name="NextPrayerValue" xml:space="preserve">
+    <value>{0} · {1}</value>
+  </data>
+  <data name="NextBreakValue" xml:space="preserve">
+    <value>Next pause · {0} {1} · Türkiye time</value>
+  </data>
+  <data name="OfflineDays" xml:space="preserve">
+    <value>{0} days saved offline · Diyanet</value>
+  </data>
+  <data name="OfflineUntil" xml:space="preserve">
+    <value>Saved through {0}. These dates work without internet.</value>
+  </data>
+  <data name="SourceClosed" xml:space="preserve">
+    <value>{0} — closed</value>
+  </data>
+  <data name="CenterPlace" xml:space="preserve">
+    <value>{0} (central)</value>
+  </data>
+  <data name="RefreshFailed" xml:space="preserve">
+    <value>Could not refresh times. Valid saved data was kept. {0}</value>
+  </data>
+  <data name="InstalledVersion" xml:space="preserve">
+    <value>Installed version: {0}</value>
+  </data>
+  <data name="ReleaseReadyHint" xml:space="preserve">
+    <value>{0} is available. Open the release page.</value>
+  </data>
+  <data name="CurrentVersion" xml:space="preserve">
+    <value>Sükûn {0} is up to date.</value>
+  </data>
+  <data name="ReleaseReady" xml:space="preserve">
+    <value>{0} is available. Select Update to open GitHub. Your settings are kept.</value>
+  </data>
+  <data name="UpdateCheckFailed" xml:space="preserve">
+    <value>Could not check for updates. {0}</value>
+  </data>
+  <data name="OpenSessions" xml:space="preserve">
+    <value>{0} sessions open; choose one below.</value>
+  </data>
+  <data name="PauseUntil" xml:space="preserve">
+    <value>Paused for {0}; resumes at {1}.</value>
+  </data>
+  <data name="PrayerSelection" xml:space="preserve">
+    <value>Pause for {0}</value>
+  </data>
+  <data name="AutomaticSource" xml:space="preserve">
+    <value>Automatic · {0}</value>
+  </data>
+  <data name="TrialSession" xml:space="preserve">
+    <value>{0} · {1} · Pause: {2}, Play: {3}</value>
+  </data>
+  <data name="OfflineDay" xml:space="preserve">
+    <value>{0} day saved offline · Diyanet</value>
+  </data>
+</root>

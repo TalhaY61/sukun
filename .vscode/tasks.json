@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Sukun: build",
+      "type": "shell",
+      "command": "./scripts/dev.ps1",
+      "args": [
+        "Build"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "powershell.exe",
+          "args": [
+            "-NoProfile",
+            "-Command"
+          ]
+        }
+      }
+    },
+    {
+      "label": "Sukun: run",
+      "type": "shell",
+      "command": "./scripts/dev.ps1",
+      "args": [
+        "Run"
+      ],
+      "problemMatcher": "$msCompile",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "powershell.exe",
+          "args": [
+            "-NoProfile",
+            "-Command"
+          ]
+        }
+      }
+    },
+    {
+      "label": "Sukun: test",
+      "type": "shell",
+      "command": "./scripts/dev.ps1",
+      "args": [
+        "Test"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "test",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "powershell.exe",
+          "args": [
+            "-NoProfile",
+            "-Command"
+          ]
+        }
+      }
+    }
+  ]
+}

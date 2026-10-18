@@ -1,0 +1,11 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Sukun (Windows)", "type": "coreclr", "request": "launch",
+      "preLaunchTask": "Sukun: build",
+      "program": "${workspaceFolder}/src/Sukun.Windows/bin/Debug/net10.0-windows10.0.19041.0/Sukun.exe",
+      "cwd": "${workspaceFolder}", "console": "internalConsole", "stopAtEntry": false
+    }
+  ]
+}
