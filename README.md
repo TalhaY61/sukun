@@ -14,7 +14,7 @@ Sükûn, namaz vakti geldiğinde bilgisayarınızda çalan müziğe veya videoya
 
 Ücretsiz, reklamsız ve açık kaynaklıdır. Hesap açmanız veya .NET kurmanız gerekmez. **Windows 10 (2004 veya sonrası) ve Windows 11, x64** desteklenir. Şimdilik Türkiye için Diyanet vakitlerini kullanır.
 
-> **İlk deneme sürümü: v0.1.0-beta.5.** Henüz kararlı sürüm değildir ve dijital olarak imzalanmamıştır. Windows bazı bilgisayarlarda uyarı gösterebilir veya çalışmasını engelleyebilir.
+> **İlk yayın: v1.0.0.** Bu sürüm dijital olarak imzalanmamıştır. Windows bazı bilgisayarlarda uyarı gösterebilir veya çalışmasını engelleyebilir.
 
 | Açık tema | Koyu tema |
 | :---: | :---: |
@@ -28,7 +28,7 @@ Sükûn, namaz vakti geldiğinde bilgisayarınızda çalan müziğe veya videoya
 4. **Otomatik duraklatma** anahtarını açın. Uygulama yalnızca işaretlediğiniz vakitlerde ara verir. Ezanı dinleyerek bitişini algılamaz; seçtiğiniz süreyi kullanır.
 5. Penceredeki **X** uygulamayı sağ alttaki bildirim alanına gizler. Simgeye tıklayarak yeniden açabilirsiniz. Tamamen kapatmak için **Çıkış**’ı kullanın.
 
-Konum, dil ve diğer tercihleriniz kaydedilir. Türkçe ve İngilizce arasında yeniden başlatmadan geçebilirsiniz. Bilgisayarın açık, uyanık ve Sükûn’un çalışıyor olması gerekir. Etkinlikte, spor salonunda veya kafede kullanmadan önce kendi oynatıcınızla deneyin; bu beta gözetimsiz işletme kullanımı için henüz doğrulanmamıştır.
+Konum, dil ve diğer tercihleriniz kaydedilir. Türkçe ve İngilizce arasında yeniden başlatmadan geçebilirsiniz. Bilgisayarın açık, uyanık ve Sükûn’un çalışıyor olması gerekir. Etkinlikte, spor salonunda veya kafede kullanmadan önce kendi oynatıcınızla deneyin; gözetimsiz işletme kullanımı henüz doğrulanmamıştır.
 
 ### Yeni sürümler ve gizlilik
 
@@ -56,13 +56,13 @@ dotnet run --project src/Sukun.Windows -c Release
 ./scripts/publish.ps1
 ```
 
-Yayın betiği `artifacts/` altında EXE, ZIP ve SHA256 sağlama toplamlarını üretir. [Beta doğrulama notları](docs/BETA-VERIFICATION.md).
+Yayın betiği `artifacts/` altında EXE, ZIP ve SHA256 sağlama toplamlarını üretir. [Yayın doğrulama notları](docs/RELEASE-VERIFICATION.md).
 
 </details>
 
 ### Dijital imza
 
-Mevcut beta imzasızdır. İmzalama altyapısı hazırlanmıştır; sertifika veya imzalama hizmeti onayı henüz alınmamıştır. [İmzalama hazırlığı ve yayın süreci](docs/CODE_SIGNING.md) geliştiriciler için İngilizce teknik ayrıntıları içerir.
+Mevcut sürüm imzasızdır. İmzalama altyapısı hazırlanmıştır; sertifika veya imzalama hizmeti onayı henüz alınmamıştır. [İmzalama hazırlığı ve yayın süreci](docs/CODE_SIGNING.md) geliştiriciler için İngilizce teknik ayrıntıları içerir.
 
 Geliştiren: [Talha — @justtalha_](https://x.com/justtalha_).
 
@@ -78,7 +78,7 @@ Sükûn is a small Windows app that pauses music or video at prayer time. After 
 
 Free, ad-free and open source. No account or .NET installation needed. Supports **Windows 10 (2004 or later) and Windows 11, x64**. Currently uses Diyanet prayer times for locations in Türkiye.
 
-> **Preview release: v0.1.0-beta.5.** This is not a stable release and is not digitally signed. Windows may display a warning or block it on some computers.
+> **First release: v1.0.0.** This release is not digitally signed. Windows may display a warning or block it on some computers.
 
 | Light theme | Dark theme |
 | :---: | :---: |
@@ -92,7 +92,7 @@ Free, ad-free and open source. No account or .NET installation needed. Supports 
 4. Enable **Auto pause**. Breaks apply only to the prayers you select. The app uses your chosen duration; it does not listen for the end of the adhan.
 5. **X** hides the window in the notification area at the bottom right of Windows. Click its icon to reopen it. Use **Quit** to exit completely.
 
-Your location, language and preferences are saved. Switch between English and Turkish without restarting. Your PC must be awake with Sükûn running. Try your own player before using it at an event, gym or café; unattended venue operation has not been validated for this beta.
+Your location, language and preferences are saved. Switch between English and Turkish without restarting. Your PC must be awake with Sükûn running. Try your own player before using it at an event, gym or café; unattended venue operation has not been validated.
 
 ### Updates and privacy
 
@@ -120,12 +120,12 @@ dotnet run --project src/Sukun.Windows -c Release
 ./scripts/publish.ps1
 ```
 
-The publish script creates the EXE, ZIP and SHA256 checksums in `artifacts/`. See the [beta verification notes](docs/BETA-VERIFICATION.md).
+The publish script creates the EXE, ZIP and SHA256 checksums in `artifacts/`. See the [release verification notes](docs/RELEASE-VERIFICATION.md).
 
 </details>
 
 ### Code signing
 
-The current beta is unsigned. Signing preparation is in place, but no certificate or signing-service approval has been obtained. See the [signing preparation and release process](docs/CODE_SIGNING.md).
+The current release is unsigned. Signing preparation is in place, but no certificate or signing-service approval has been obtained. See the [signing preparation and release process](docs/CODE_SIGNING.md).
 
 Made by [Talha — @justtalha_](https://x.com/justtalha_).

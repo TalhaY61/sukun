@@ -1,6 +1,6 @@
 param([string]$Runtime = 'win-x64', [switch]$Lite)
 $ErrorActionPreference = 'Stop'
-if ($Runtime -ne 'win-x64') { throw 'Official beta target: Windows 10/11 x64 (win-x64).' }
+if ($Runtime -ne 'win-x64') { throw 'Official target: Windows 10/11 x64 (win-x64).' }
 $env:DOTNET_CLI_TELEMETRY_OPTOUT = '1'
 $taskRoot = Split-Path $PSScriptRoot -Parent
 $output = Join-Path $taskRoot $(if ($Lite) { 'artifacts/lite' } else { 'artifacts/portable' })
