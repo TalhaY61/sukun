@@ -8,7 +8,7 @@
 
 **[İndir / Download](https://talhay61.github.io/sukun/)** · [GitHub Releases](https://github.com/TalhaY61/sukun/releases) · [Hata bildir / Report an issue](https://github.com/TalhaY61/sukun/issues/new/choose)
 
-> **v0.1.0-beta.3 — Test sürümü / Test release.** Henüz kararlı sürüm değildir. / Not a stable release yet.
+> **v0.1.0-beta.4 — Test sürümü / Test release.** Henüz kararlı sürüm değildir. / Not a stable release yet.
 
 | Türkçe · Açık | English · Light |
 | :---: | :---: |
@@ -26,6 +26,16 @@
 Download the Windows x64 EXE, keep it in a permanent folder and open it—no .NET installation needed. Choose your Turkish location, media source and prayer times, then enable **Auto pause**. Saved prayer dates work offline. Close hides the app in the tray; **Quit** exits. Switch between English and Turkish without restarting.
 
 **Windows 10 (2004 / build 19041 veya sonrası) ve Windows 11, x64.** Windows 8 hedeflenmez. The beta is unsigned; Windows may warn or block it. The published EXE was blocked by Application Control on the development machine; final-package launch remains unverified there. Player compatibility varies: a browser must expose a Windows media session. Sükûn resumes only the session it successfully paused; it never starts already-paused media.
+
+## Güncellemeler · Updates
+
+Gelişmiş ayarlarda **Yeni uygulama sürümlerini denetle** seçeneğini açarsanız GitHub günde bir kontrol edilir. Beta sürümleri yeni betaları da görür; kararlı sürümler kararlı kanalda kalır. Yeni sürüm için bir kez tepsi bildirimi gösterilir (Windows bildirim ayarlarına bağlıdır). Güncelle’ye tıklayıp onaylayınca yayın sayfası açılır. Otomatik indirme, kurulum veya yeniden başlatma yoktur. Müzik yayını kesilmez.
+
+Enable **Check for app updates** in Advanced settings for daily checks. Beta builds include newer betas; stable builds stay on the stable channel. A one-time tray notice depends on Windows notification settings. Update asks before opening the release page; it never installs or restarts automatically.
+
+Spor salonu, kafe veya etkinlikte kullanmadan önce doğru oynatıcıyı seçip kısa bir gerçek deneme yapın. Otomatik seçim birden fazla kaynak çalıyorsa tahmin yapmaz. PC uyurken/kapalıyken çalışmaz; Windows medya oturumu sunmayan DJ/oynatıcı uygulamalarını kontrol edemez. Bu beta, gözetimsiz işletme kullanımı için henüz doğrulanmamıştır.
+
+Before venue use, choose the intended player and run a real trial. Automatic selection does not guess when several sources are playing. The PC must be awake and the player must expose a Windows media session. Unattended venue operation has not been validated for this beta.
 
 ## Gizlilik ve lisans · Privacy & license
 
