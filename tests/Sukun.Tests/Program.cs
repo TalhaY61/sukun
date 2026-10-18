@@ -315,6 +315,136 @@ Test("Prayer fixture excludes third-party credentials and external scripts", () 
     Assert(!System.Text.RegularExpressions.Regex.IsMatch(html, "AIza" + "[0-9A-Za-z_-]{35}"));
     Assert(!System.Text.RegularExpressions.Regex.IsMatch(html, @"https?://|\bsrc\s*=", System.Text.RegularExpressions.RegexOptions.IgnoreCase));
 });
+string PublishedUpdate(string tag, bool preview = false, bool draft = false, string? assetUrl = null, bool hasAsset = true, bool published = true, string? page = null) =>
+    System.Text.Json.JsonSerializer.Serialize(new {
+        tag_name = tag, html_url = page ?? "https://github.com/TalhaY61/sukun/releases/tag/" + Uri.EscapeDataString(tag),
+        prerelease = preview, draft, published_at = published ? "2026-10-18T12:00:00Z" : null,
+        assets = hasAsset ? new[] { new { name = "Sukun-win-x64.exe", state = "uploaded", size = 12345,
+            browser_download_url = assetUrl ?? "https://github.com/TalhaY61/sukun/releases/download/" + Uri.EscapeDataString(tag) + "/Sukun-win-x64.exe" } } : []
+    });
+string UpdateFeed(params string[] items) => "[" + string.Join(',', items) + "]";
+
+Test("Prerelease numbers compare numerically and release candidates precede stable", () =>
+{
+    Assert(UpdateVersion.Parse("0.1.0-beta.10")!.CompareTo(UpdateVersion.Parse("0.1.0-beta.9")) > 0);
+    Assert(UpdateVersion.Parse("0.1.0-rc.1")!.CompareTo(UpdateVersion.Parse("0.1.0-beta.99")) > 0);
+    Assert(UpdateVersion.Parse("0.1.0")!.CompareTo(UpdateVersion.Parse("0.1.0-rc.1")) > 0);
+    Assert(UpdateVersion.Parse("v0.1.0-beta.3+new")!.CompareTo(UpdateVersion.Parse("0.1.0-beta.3+old")) == 0);
+});
+Test("Malformed and ambiguous version strings are rejected", () =>
+{
+    foreach (var tag in new[] {"0.1", "01.1.0", "0.1.0.1", "0.1.0-beta.01", "0.1.0-", "0.1.0+", "0.1.0-hello_world", new string('1', 101)})
+        Assert(UpdateVersion.Parse(tag) is null, tag);
+    Reject(() => SoftwareRelease.Parse(ReleaseJson("v0.1.0-beta.4", preview: false), repository, true));
+});
+Test("Beta installations discover later beta releases and stable of the same base version", () =>
+{
+    var beta = PublishedUpdate("v0.1.0-beta.4", true);
+    Assert(SoftwareRelease.FindUpdate(UpdateFeed(beta), repository, "0.1.0-beta.3")?.Tag == "v0.1.0-beta.4");
+    Assert(SoftwareRelease.FindUpdate(UpdateFeed(beta, PublishedUpdate("v0.1.0")), repository, "0.1.0-beta.3")?.Tag == "v0.1.0");
+});
+Test("Stable installations never move to a prerelease channel", () =>
+{
+    Assert(SoftwareRelease.FindUpdate(UpdateFeed(PublishedUpdate("v9.0.0-beta.1", true)), repository, "0.1.0") is null);
+    Assert(SoftwareRelease.FindUpdate(UpdateFeed(PublishedUpdate("v9.0.0-beta.1", true), PublishedUpdate("v0.1.1")), repository, "0.1.0")?.Tag == "v0.1.1");
+});
+Test("Releases are ordered by version rather than feed order or lexical beta suffix", () =>
+{
+    var result = SoftwareRelease.FindUpdate(UpdateFeed(PublishedUpdate("v0.1.0-beta.9", true), PublishedUpdate("v0.1.0-beta.10", true), PublishedUpdate("v0.1.0-beta.4", true)), repository, "0.1.0-beta.3");
+    Assert(result?.Tag == "v0.1.0-beta.10");
+});
+Test("Updates cannot downgrade or reoffer an already installed version", () =>
+{
+    Assert(SoftwareRelease.FindUpdate(UpdateFeed(PublishedUpdate("v0.1.9")), repository, "0.2.0-beta.1") is null);
+    Assert(SoftwareRelease.FindUpdate(UpdateFeed(PublishedUpdate("v0.1.0-beta.3+new", true)), repository, "0.1.0-beta.3+old") is null);
+    Assert(SoftwareRelease.FindUpdate(PublishedUpdate("v0.1.0"), repository, "0.1.0") is null);
+});
+Test("Drafts, unpublished releases and releases missing an EXE are never offered", () =>
+{
+    var json = UpdateFeed(PublishedUpdate("v0.2.0", draft: true), PublishedUpdate("v0.3.0", published: false), PublishedUpdate("v0.4.0", hasAsset: false));
+    Assert(SoftwareRelease.FindUpdate(json, repository, "0.1.0") is null);
+});
+Test("Foreign download URLs and release pages are ignored without hiding a valid update", () =>
+{
+    foreach (var url in new[] {"https://example.com/Sukun-win-x64.exe", "http://github.com/TalhaY61/sukun/releases/download/v0.2.0/Sukun-win-x64.exe", "https://github.com/other/repo/releases/download/v0.2.0/Sukun-win-x64.exe", "https://github.com/TalhaY61/sukun/releases/download/v0.2.0/Sukun-win-x64.exe?redirect=1", "https://github.com:444/TalhaY61/sukun/releases/download/v0.2.0/Sukun-win-x64.exe"})
+        Assert(SoftwareRelease.FindUpdate(PublishedUpdate("v0.2.0", assetUrl: url), repository, "0.1.0") is null);
+    var json = UpdateFeed(PublishedUpdate("v8.0.0", page: "https://example.com/release"), "{\"tag_name\":false}", PublishedUpdate("v0.2.0"));
+    Assert(SoftwareRelease.FindUpdate(json, repository, "0.1.0")?.Tag == "v0.2.0");
+});
+AsyncTest("HTTP update client uses the beta feed without credentials and stable uses latest", async () =>
+{
+    using var betaHandler = new StubReleaseHandler(_ => new(System.Net.HttpStatusCode.OK) { Content = new System.Net.Http.StringContent(UpdateFeed(PublishedUpdate("v0.1.0-beta.4", true))) });
+    using var betaClient = new SoftwareUpdateClient(betaHandler);
+    Assert((await betaClient.CheckAsync(repository, "0.1.0-beta.3"))?.Tag == "v0.1.0-beta.4");
+    Assert(betaHandler.LastUri == repository.ReleasesApi && !betaHandler.HadAuthorization && betaHandler.Calls == 1);
+    using var stableHandler = new StubReleaseHandler(_ => new(System.Net.HttpStatusCode.OK) { Content = new System.Net.Http.StringContent(PublishedUpdate("v0.1.1")) });
+    using var stableClient = new SoftwareUpdateClient(stableHandler);
+    Assert((await stableClient.CheckAsync(repository, "0.1.0"))?.Tag == "v0.1.1");
+    Assert(stableHandler.LastUri == repository.LatestReleaseApi && !stableHandler.HadAuthorization);
+});
+AsyncTest("A repository without a matching published release does not invent an update", async () =>
+{
+    using var handler = new StubReleaseHandler(_ => new(System.Net.HttpStatusCode.NotFound));
+    using var client = new SoftwareUpdateClient(handler);
+    Assert(await client.CheckAsync(repository, "0.1.0") is null);
+});
+AsyncTest("Rate limits and network errors do not become successful update results", async () =>
+{
+    foreach (var status in new[] {System.Net.HttpStatusCode.Forbidden, System.Net.HttpStatusCode.TooManyRequests})
+    {
+        using var handler = new StubReleaseHandler(_ => new(status)); using var client = new SoftwareUpdateClient(handler);
+        var rejected=false; try {await client.CheckAsync(repository, "0.1.0");} catch(InvalidDataException){rejected=true;}
+        Assert(rejected && handler.Calls==1);
+    }
+    using var offline = new StubReleaseHandler(_ => throw new System.Net.Http.HttpRequestException("offline"));
+    using var offlineClient = new SoftwareUpdateClient(offline);
+    var failed=false; try {await offlineClient.CheckAsync(repository, "0.1.0-beta.3");} catch(System.Net.Http.HttpRequestException){failed=true;}
+    Assert(failed && offline.Calls==1);
+});
+Test("Update scheduling checks once daily and recovers from a wall clock rewind", () =>
+{
+    Assert(SoftwareUpdateSchedule.IsDue(now, null));
+    Assert(!SoftwareUpdateSchedule.IsDue(now.AddHours(23), now));
+    Assert(SoftwareUpdateSchedule.IsDue(now.AddDays(1), now));
+    Assert(SoftwareUpdateSchedule.IsDue(now.AddHours(-2), now));
+    Assert(!SoftwareUpdateSchedule.IsDue(now.AddSeconds(-10), now));
+});
+Test("Update notification waits for a safe interval and stays opt-in", () =>
+{
+    var release=SoftwareRelease.Parse(ReleaseJson(), repository);
+    var settings=new Settings();
+    Assert(!SoftwareUpdateSchedule.ShouldNotify(settings, release, false));
+    settings.AutoCheckSoftwareUpdates=true;
+    Assert(!SoftwareUpdateSchedule.ShouldNotify(settings, release, true));
+    Assert(SoftwareUpdateSchedule.ShouldNotify(settings, release, false));
+    settings.LastNotifiedSoftwareVersion=release.Tag;
+    Assert(!SoftwareUpdateSchedule.ShouldNotify(settings, release, false));
+    Assert(!SoftwareUpdateSchedule.ShouldNotify(settings, null, false));
+});
+AsyncTest("Notified update version persists across restart without changing automation choices", async () =>
+{
+    var root=Path.Combine(Environment.CurrentDirectory,"artifacts","update-settings-tests",Guid.NewGuid().ToString("N"));
+    var store=new LocalStore(root);
+    var settings=new Settings{AutoCheckSoftwareUpdates=true,LastNotifiedSoftwareVersion="v0.2.0",Enabled=true,PlaceId="9206",PreferredApp="player"};
+    await store.SaveSettingsAsync(settings); var loaded=store.LoadSettings();
+    Assert(loaded.Enabled && loaded.PreferredApp=="player" && loaded.LastNotifiedSoftwareVersion=="v0.2.0");
+    Assert(!SoftwareUpdateSchedule.ShouldNotify(loaded,SoftwareRelease.Parse(ReleaseJson(),repository),false));
+    Assert(System.Text.Json.JsonSerializer.Deserialize<Settings>("{\"AutoCheckSoftwareUpdates\":false}")!.LastNotifiedSoftwareVersion is null);
+});
+AsyncTest("Idle and disabled automation do not poll Windows media sessions", async () =>
+{
+    var(m,c)=await Ready();
+    for(var i=1;i<20;i++) await c.TickAsync(now.AddSeconds(i),true,windows,null);
+    await c.TickAsync(now.AddSeconds(20),false,windows,null);
+    Assert(m.Reads==0 && m.Pauses==0 && m.Plays==0);
+});
+Test("Update prompt and tray notice resources exist in both supported languages", () =>
+{
+    foreach(var lang in new[]{"en","tr"})
+    foreach(var key in new[]{"UpdateNotificationTitle","UpdateNotificationBody","UpdateQuestion","UpdateAfterBreak","InvalidUpdateResponse"})
+        Assert(L.ForLanguage(key,lang)!=key);
+});
+
 var failed = 0;
 foreach (var (name, run) in tests)
 {
@@ -327,9 +457,9 @@ return failed == 0 ? 0 : 1;
 sealed class FakeMedia : IMediaControl
 {
     public List<MediaState> States { get; set; } = [];
-    public int Pauses, Plays;
+    public int Pauses, Plays, Reads;
     public bool PauseSucceeds=true, ChangeOnPause=true, PlaySucceeds=true, ChangeOnPlay=true, ThrowOnRead;
-    public Task<IReadOnlyList<MediaState>> ReadAsync() { if(ThrowOnRead) throw new System.Runtime.InteropServices.COMException("test"); return Task.FromResult<IReadOnlyList<MediaState>>(States.ToArray()); }
+    public Task<IReadOnlyList<MediaState>> ReadAsync() { Reads++; if(ThrowOnRead) throw new System.Runtime.InteropServices.COMException("test"); return Task.FromResult<IReadOnlyList<MediaState>>(States.ToArray()); }
     public Task<bool> PauseAsync(string id) { Pauses++; if(PauseSucceeds && ChangeOnPause) Change(id,Playback.Paused); return Task.FromResult(PauseSucceeds); }
     public Task<bool> PlayAsync(string id) { Plays++; if(PlaySucceeds && ChangeOnPlay) Change(id,Playback.Playing); return Task.FromResult(PlaySucceeds); }
     private void Change(string id,Playback state) { var i=States.FindIndex(s=>s.SessionId==id); if(i>=0) States[i]=States[i] with {Playback=state}; }
@@ -344,4 +474,16 @@ sealed class TestClock(DateTimeOffset start) : TimeProvider
     public override long GetTimestamp()=>stamp;
     public void Advance(TimeSpan elapsed) { wall+=elapsed; stamp+=elapsed.Ticks; }
     public void ShiftWall(TimeSpan difference)=>wall+=difference;
+}
+
+sealed class StubReleaseHandler(Func<System.Net.Http.HttpRequestMessage, System.Net.Http.HttpResponseMessage> respond) : System.Net.Http.HttpMessageHandler
+{
+    public Uri? LastUri;
+    public bool HadAuthorization;
+    public int Calls;
+    protected override Task<System.Net.Http.HttpResponseMessage> SendAsync(System.Net.Http.HttpRequestMessage request, CancellationToken cancellationToken)
+    {
+        Calls++; LastUri=request.RequestUri; HadAuthorization=request.Headers.Authorization is not null;
+        return Task.FromResult(respond(request));
+    }
 }

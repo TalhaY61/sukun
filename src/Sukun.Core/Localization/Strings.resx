@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
@@ -448,7 +448,7 @@
     <value>Sunrise is informational. Playback does not pause here.</value>
   </data>
   <data name="UpdateOptInHint" xml:space="preserve">
-    <value>Optional. Checks GitHub at most once a day.</value>
+    <value>Optional. Checks GitHub once a day. Beta builds include newer betas; stable builds stay on stable releases.</value>
   </data>
   <data name="GitHubHint" xml:space="preserve">
     <value>Open Sükûn’s source code.</value>
@@ -526,7 +526,7 @@
     <value>Sükûn {0} is up to date.</value>
   </data>
   <data name="ReleaseReady" xml:space="preserve">
-    <value>{0} is available. Select Update to open GitHub. Your settings are kept.</value>
+    <value>{0} is available. Choose Update to review the download page. Playback is not interrupted.</value>
   </data>
   <data name="UpdateCheckFailed" xml:space="preserve">
     <value>Could not check for updates. {0}</value>
@@ -548,5 +548,22 @@
   </data>
   <data name="OfflineDay" xml:space="preserve">
     <value>{0} day saved offline · Diyanet</value>
+  </data>
+  <data name="InvalidUpdateResponse" xml:space="preserve">
+    <value>The release service returned an invalid response.</value>
+  </data>
+  <data name="UpdateNotificationTitle" xml:space="preserve">
+    <value>Sükûn update</value>
+  </data>
+  <data name="UpdateNotificationBody" xml:space="preserve">
+    <value>{0} is available. Click to review the update.</value>
+  </data>
+  <data name="UpdateQuestion" xml:space="preserve">
+    <value>Sükûn {0} is available. Would you like to open the download page?
+
+Playback will continue. Nothing will be installed or restarted automatically.</value>
+  </data>
+  <data name="UpdateAfterBreak" xml:space="preserve">
+    <value>{0} is ready. Review it after the current pause or media test ends.</value>
   </data>
 </root>

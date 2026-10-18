@@ -94,6 +94,7 @@ public partial class MainWindow : Window
         menu.Items.Add(L.Get("CancelResume"), null, (_, _) => Dispatcher.Invoke(() => CancelResume(this, new RoutedEventArgs())));
         menu.Items.Add(L.Get("Quit"), null, (_, _) => Dispatcher.Invoke(ExitApp));
         tray.ContextMenuStrip = menu;
+        tray.BalloonTipClicked += (_, _) => Dispatcher.BeginInvoke(() => { ShowApp(); ShowUpdatePrompt(); });
         tray.MouseClick += (_, e) => { if (e.Button == Forms.MouseButtons.Left) Dispatcher.Invoke(() => { if (IsVisible) Hide(); else ShowApp(); }); };
         timer.Tick += async (_, _) => await TickAsync();
         IsVisibleChanged += (_, _) => { if (!loading) Wake(); };
@@ -152,10 +153,11 @@ public partial class MainWindow : Window
         }
         catch (Exception e) { controller.Cancel(() => L.Get("MediaInterrupted")); StopTest(() => L.Get("TrialInterrupted")); log.Error("tick-failed", e); Notice(() => Friendly(e)); timer.Interval = TimeSpan.FromSeconds(15); }
         finally { gate.Release(); if (!exiting) timer.Start(); }
+        await NotifySoftwareUpdateAsync();
         if (!smoke && settings.AutoRefresh && settings.PlaceId is { } id && CanRefreshAutomatically(id) &&
             (table is null || Now - table.FetchedAt > TimeSpan.FromDays(30) || table.ContiguousDays(Timetable.TurkeyDate(Now)) < 14)) _ = RefreshAsync(false);
         if (!smoke && settings.AutoCheckSoftwareUpdates && !checkingSoftware &&
-            (!settings.LastSoftwareCheckAttempt.HasValue || Now - settings.LastSoftwareCheckAttempt.Value >= TimeSpan.FromDays(1))) _ = CheckSoftwareAsync(false);
+            SoftwareUpdateSchedule.IsDue(Now, settings.LastSoftwareCheckAttempt)) _ = CheckSoftwareAsync(false);
     }
     private void Render(DateTimeOffset now, IReadOnlyList<BreakWindow> windows)
     {
@@ -163,6 +165,12 @@ public partial class MainWindow : Window
         var overview = PrayerOverview.Build(table, settings, now);
         var hasNext = overview.NextPrayer.HasValue;
         var nextBreak = overview.NextAutomaticBreak;
+        var trayText = settings.Enabled ? L.Get("TrayActive") : L.Get("TrayOff");
+        if (tray.Text != trayText) tray.Text = trayText;
+        var schedule = $"{settings.PlaceId}|{settings.Enabled}|{nextBreak?.Start:O}|{controller.ActiveUntil:O}|{TimeZoneInfo.Local.Id}";
+        if (schedule != lastSchedule) { lastSchedule = schedule; log.Write("schedule", new { settings.PlaceId, settings.Enabled, provider = "Diyanet", calculationZone = "UTC+03:00", next = nextBreak?.Start, activeUntil = controller.ActiveUntil }); }
+        if (!IsVisible) return; // Keep scheduling/tray state, skip invisible WPF control updates.
+
         StatusLabel.Text = controller.IsActive ? L.Get("OnBreak") : settings.Enabled ? L.Get("Active") : L.Get("Off");
         StatusDot.SetResourceReference(System.Windows.Shapes.Shape.FillProperty, settings.Enabled ? "Accent" : "Muted");
         AutomationToggle.IsChecked = settings.Enabled;
@@ -200,10 +208,7 @@ public partial class MainWindow : Window
         LocationSummary.Visibility = compact ? Visibility.Visible : Visibility.Collapsed;
         LocationSummary.Text = place is null ? "" : $"{place.Province} · {place.DisplayName}";
         ChangeLocationButton.Visibility = compact ? Visibility.Visible : Visibility.Collapsed;
-        tray.Text = settings.Enabled ? L.Get("TrayActive") : L.Get("TrayOff");
         TestMediaButton.IsEnabled = !smoke && mediaReady && testController is null && !controller.IsActive;
-        var schedule = $"{settings.PlaceId}|{settings.Enabled}|{nextBreak?.Start:O}|{controller.ActiveUntil:O}|{TimeZoneInfo.Local.Id}";
-        if (schedule != lastSchedule) { lastSchedule = schedule; log.Write("schedule", new { settings.PlaceId, settings.Enabled, provider = "Diyanet", calculationZone = "UTC+03:00", next = nextBreak?.Start, activeUntil = controller.ActiveUntil }); }
     }
     private async Task RefreshPlayersAsync()
     {
@@ -445,6 +450,7 @@ public partial class MainWindow : Window
         var repository = ReleaseSource.Repository;
         if (repository is null) { if (manual) Notice(() => L.Get("NoUpdateRepository")); return; }
         checkingSoftware = true;
+        var completed = false;
         SoftwareUpdateButton.IsEnabled = false;
         SoftwareUpdateLabel.Text = L.Get("CheckingUpdates");
         try
@@ -457,6 +463,7 @@ public partial class MainWindow : Window
             }
             finally { gate.Release(); }
             availableRelease = await softwareUpdates.CheckAsync(repository);
+            completed = true;
             softwareChecked = true;
             if (exiting) return;
             SoftwareUpdateLabel.Text = availableRelease is null ? L.Get("UpToDate") : L.Get("NewRelease");
@@ -475,10 +482,39 @@ public partial class MainWindow : Window
             }
         }
         finally { checkingSoftware = false; if (!exiting) { SoftwareUpdateButton.IsEnabled = true; RenderUpdateState(); } }
+        if (completed && availableRelease is not null && !exiting)
+        {
+            if (manual) ShowUpdatePrompt();
+            else await NotifySoftwareUpdateAsync();
+        }
+    }
+    private async Task NotifySoftwareUpdateAsync()
+    {
+        if (smoke || exiting || availableRelease is null || !settings.AutoCheckSoftwareUpdates || settings.LastNotifiedSoftwareVersion == availableRelease.Tag) return;
+        await gate.WaitAsync();
+        try
+        {
+            var release = availableRelease;
+            if (!SoftwareUpdateSchedule.ShouldNotify(settings, release, controller.IsActive || testController is not null)) return;
+            settings.LastNotifiedSoftwareVersion = release!.Tag;
+            await store.SaveSettingsAsync(settings);
+            if (!exiting) tray.ShowBalloonTip(8000, L.Get("UpdateNotificationTitle"), L.Get("UpdateNotificationBody", release.Tag), Forms.ToolTipIcon.Info);
+        }
+        catch (Exception error) { log.Error("update-notification", error); }
+        finally { gate.Release(); }
+    }
+    private void ShowUpdatePrompt()
+    {
+        if (availableRelease is not { } release || exiting) return;
+        if (controller.IsActive || testController is not null)
+        { Notice(() => L.Get("UpdateAfterBreak", release.Tag)); return; }
+        if (System.Windows.MessageBox.Show(this, L.Get("UpdateQuestion", release.Tag), L.Get("UpdateNotificationTitle"),
+            MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.Yes)
+            OpenLink(release.Page);
     }
     private async void UpdateApplication(object sender, RoutedEventArgs e)
     {
-        if (availableRelease is not null) OpenLink(availableRelease.Page);
+        if (availableRelease is not null) ShowUpdatePrompt();
         else await CheckSoftwareAsync(true);
     }
     private void OpenFeedback(object sender, RoutedEventArgs e)
@@ -509,7 +545,7 @@ public partial class MainWindow : Window
         catch (Exception error) { Notice(() => Friendly(error)); }
         finally { gate.Release(); }
         if (settings.AutoCheckSoftwareUpdates && !smoke &&
-            (!settings.LastSoftwareCheckAttempt.HasValue || Now - settings.LastSoftwareCheckAttempt.Value >= TimeSpan.FromDays(1)))
+            SoftwareUpdateSchedule.IsDue(Now, settings.LastSoftwareCheckAttempt))
             await CheckSoftwareAsync(false);
     }
     private void DetailsExpanded(object sender, RoutedEventArgs e) { }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
@@ -448,7 +448,7 @@
     <value>Güneş doğuşudur; ezan molası verilmez.</value>
   </data>
   <data name="UpdateOptInHint" xml:space="preserve">
-    <value>İsteğe bağlıdır; günde en fazla bir GitHub kontrolü yapar.</value>
+    <value>İsteğe bağlı. GitHub günde bir denetlenir. Beta sürümleri yeni betaları da görür; kararlı sürümler kararlı kanalda kalır.</value>
   </data>
   <data name="GitHubHint" xml:space="preserve">
     <value>Sükûn’un kaynak kodunu aç.</value>
@@ -526,7 +526,7 @@
     <value>Sükûn {0} güncel.</value>
   </data>
   <data name="ReleaseReady" xml:space="preserve">
-    <value>{0} hazır. Güncelle düğmesi GitHub yayın sayfasını açar; mevcut ayarlarınız korunur.</value>
+    <value>{0} hazır. İndirme sayfasını incelemek için Güncelle’yi seçin. Medya yayını kesilmez.</value>
   </data>
   <data name="UpdateCheckFailed" xml:space="preserve">
     <value>Sürüm kontrolü tamamlanamadı. {0}</value>
@@ -548,5 +548,22 @@
   </data>
   <data name="OfflineDay" xml:space="preserve">
     <value>{0} gün çevrimdışı hazır · Diyanet</value>
+  </data>
+  <data name="InvalidUpdateResponse" xml:space="preserve">
+    <value>Sürüm hizmetinden geçersiz yanıt alındı.</value>
+  </data>
+  <data name="UpdateNotificationTitle" xml:space="preserve">
+    <value>Sükûn güncellemesi</value>
+  </data>
+  <data name="UpdateNotificationBody" xml:space="preserve">
+    <value>{0} sürümü hazır. Güncellemeyi incelemek için tıklayın.</value>
+  </data>
+  <data name="UpdateQuestion" xml:space="preserve">
+    <value>Sükûn {0} sürümü hazır. İndirme sayfasını açmak ister misiniz?
+
+Medya yayını devam eder. Otomatik kurulum veya yeniden başlatma yapılmaz.</value>
+  </data>
+  <data name="UpdateAfterBreak" xml:space="preserve">
+    <value>{0} hazır. Mevcut mola veya medya testi bittikten sonra güncellemeyi inceleyebilirsiniz.</value>
   </data>
 </root>

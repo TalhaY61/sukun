@@ -27,6 +27,7 @@ public sealed class Settings
     public string Theme { get; set; } = "System";
     public bool AutoCheckSoftwareUpdates { get; set; }
     public DateTimeOffset? LastSoftwareCheckAttempt { get; set; }
+    public string? LastNotifiedSoftwareVersion { get; set; }
     public int BeforeSeconds { get; set; } = 30;
     public int AfterMinutes { get; set; } = 7;
     public HashSet<Prayer> Prayers { get; set; } = [Prayer.Dhuhr, Prayer.Asr, Prayer.Maghrib, Prayer.Isha];
